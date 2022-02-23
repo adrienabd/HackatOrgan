@@ -25,15 +25,14 @@ namespace HackatOrgan
 
         private void ImprimerParticipant_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void comboBox_hackathon_SelectedIndexChanged(object sender, EventArgs e)
-        {
             hackathonContext cnx = new hackathonContext();
             comboBox_hackathon.DataSource = cnx.Hackathons.OrderBy(Ha => Ha.IdHackathon).ToList();
             comboBox_hackathon.DisplayMember = "Theme";
             comboBox_hackathon.ValueMember = "idHackathon";
+        }
+
+        private void comboBox_hackathon_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
 
         private void btn_precedent_Click(object sender, EventArgs e)
