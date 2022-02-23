@@ -31,5 +31,10 @@ namespace HackatOrgan.Forms
         {
 
         }
+
+        private void btn_precedent_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

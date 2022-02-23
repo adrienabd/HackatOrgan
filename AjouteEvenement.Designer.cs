@@ -74,6 +74,7 @@ namespace HackatOrgan.Forms
             this.btn_precedent.TabIndex = 49;
             this.btn_precedent.Text = "Précedent";
             this.btn_precedent.UseVisualStyleBackColor = true;
+            this.btn_precedent.Click += new System.EventHandler(this.btn_precedent_Click);
             // 
             // lbl_nb_places
             // 

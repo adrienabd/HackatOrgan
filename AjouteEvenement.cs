@@ -45,5 +45,10 @@ namespace HackatOrgan.Forms
             combobox_hackathon.DisplayMember = "Theme";
             combobox_hackathon.ValueMember = "idHackathon";
         }
+
+        private void btn_precedent_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
