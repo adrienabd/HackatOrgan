@@ -50,5 +50,16 @@ namespace HackatOrgan.Forms
         {
             this.Close();
         }
+
+        private void btn_annuler_Click(object sender, EventArgs e)
+        {
+            txtbx_theme.Clear();
+            txtbx_date.Clear();
+            txtbx_heure_debut.Clear();
+            txtbx_heure_fin.Clear();
+            txtbx_date_limite.Clear();
+            txtbx_nb_places.Clear();
+
+        }
     }
 }
