@@ -38,7 +38,7 @@ namespace HackatOrgan
             // comboBox_hackathon
             // 
             this.comboBox_hackathon.FormattingEnabled = true;
-            this.comboBox_hackathon.Location = new System.Drawing.Point(144, 64);
+            this.comboBox_hackathon.Location = new System.Drawing.Point(140, 56);
             this.comboBox_hackathon.Name = "comboBox_hackathon";
             this.comboBox_hackathon.Size = new System.Drawing.Size(171, 23);
             this.comboBox_hackathon.TabIndex = 0;
@@ -47,7 +47,7 @@ namespace HackatOrgan
             // lbl_hackathon
             // 
             this.lbl_hackathon.AutoSize = true;
-            this.lbl_hackathon.Location = new System.Drawing.Point(34, 67);
+            this.lbl_hackathon.Location = new System.Drawing.Point(34, 59);
             this.lbl_hackathon.Name = "lbl_hackathon";
             this.lbl_hackathon.Size = new System.Drawing.Size(71, 15);
             this.lbl_hackathon.TabIndex = 2;

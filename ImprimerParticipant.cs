@@ -26,7 +26,7 @@ namespace HackatOrgan
             hackathonContext cnx = new hackathonContext();
             //Création d'un document
             Document unDocument = new Document();
-            PdfWriter.GetInstance(unDocument, new FileStream("D:\\aabderrahmann\\Documents\\Participants.pdf", FileMode.Create));
+            PdfWriter.GetInstance(unDocument, new FileStream("D:\\aabderrahmann\\Applis Hackathons\\Documents\\Participants."+ comboBox_hackathon.SelectedValue + ".pdf", FileMode.Create));
             unDocument.Open();
 
             //Paragraphe centré avec une police de 14 et du gras
@@ -40,13 +40,26 @@ namespace HackatOrgan
             PdfPTable tableau = new PdfPTable(3);
 
             //Remplissage avec la liste des clients
-            foreach (Participant P in cnx.Participants.ToList())
+            foreach (Hackathon H in cnx.Hackathons.ToList())
             {
-                foreach (Participation Ption in cnx.Participations.ToList())
+                object Hackat = comboBox_hackathon.SelectedValue;
+                if (H.Theme.Equals(Hackat))
                 {
-                    tableau.AddCell(P.Nom);
-                    tableau.AddCell(P.Prenom);
-                    tableau.AddCell(Ption.DateInscription.ToString());
+                    foreach (Participation Ption in cnx.Participations.ToList())
+                    {
+                        if (H.IdHackathon == Ption.IdHackathon)
+                        {
+                            foreach (Participant P in cnx.Participants.ToList())
+                            {
+                                if (P.IdParticipant == Ption.IdParticipant)
+                                {
+                                    tableau.AddCell(P.Nom);
+                                    tableau.AddCell(P.Prenom);
+                                    tableau.AddCell(Ption.DateInscription.ToString());
+                                }
+                            }
+                       }
+                    }
                 }
             }
 
@@ -54,14 +67,15 @@ namespace HackatOrgan
 
             //Enregistrement du fichier
             unDocument.Close();
+            MessageBox.Show("Document généré");
         }
 
         private void ImprimerParticipant_Load(object sender, EventArgs e)
         {
             hackathonContext cnx = new hackathonContext();
-            comboBox_hackathon.DataSource = cnx.Hackathons.OrderBy(Ha => Ha.IdHackathon).ToList();
             comboBox_hackathon.DisplayMember = "Theme";
-            comboBox_hackathon.ValueMember = "idHackathon";
+            comboBox_hackathon.ValueMember = "Theme";
+            comboBox_hackathon.DataSource = cnx.Hackathons.OrderBy(Ha => Ha.IdHackathon).ToList();
         }
 
         private void comboBox_hackathon_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,5 +87,7 @@ namespace HackatOrgan
         {
             this.Close();
         }
+
+
     }
 }
