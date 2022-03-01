@@ -54,6 +54,8 @@ namespace HackatOrgan.Forms
             this.lbl_heure_fin = new System.Windows.Forms.Label();
             this.lbl_heure_debut = new System.Windows.Forms.Label();
             this.lbl_ville = new System.Windows.Forms.Label();
+            this.txtbx_image = new System.Windows.Forms.TextBox();
+            this.lbl_image = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_precedent
@@ -84,12 +86,13 @@ namespace HackatOrgan.Forms
             this.btn_valider.TabIndex = 2;
             this.btn_valider.Text = "Valider";
             this.btn_valider.UseVisualStyleBackColor = true;
+            this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
             // 
             // txtbx_rue
             // 
             this.txtbx_rue.Location = new System.Drawing.Point(128, 146);
             this.txtbx_rue.Name = "txtbx_rue";
-            this.txtbx_rue.Size = new System.Drawing.Size(557, 23);
+            this.txtbx_rue.Size = new System.Drawing.Size(613, 23);
             this.txtbx_rue.TabIndex = 3;
             // 
             // txtbx_code_postal
@@ -111,14 +114,14 @@ namespace HackatOrgan.Forms
             // 
             this.txtbx_theme.Location = new System.Drawing.Point(128, 55);
             this.txtbx_theme.Name = "txtbx_theme";
-            this.txtbx_theme.Size = new System.Drawing.Size(557, 23);
+            this.txtbx_theme.Size = new System.Drawing.Size(613, 23);
             this.txtbx_theme.TabIndex = 11;
             // 
             // txtbx_lieu
             // 
             this.txtbx_lieu.Location = new System.Drawing.Point(128, 84);
             this.txtbx_lieu.Name = "txtbx_lieu";
-            this.txtbx_lieu.Size = new System.Drawing.Size(557, 23);
+            this.txtbx_lieu.Size = new System.Drawing.Size(613, 23);
             this.txtbx_lieu.TabIndex = 12;
             // 
             // txtbx_heure_debut
@@ -263,11 +266,31 @@ namespace HackatOrgan.Forms
             this.lbl_ville.TabIndex = 26;
             this.lbl_ville.Text = "Ville :";
             // 
+            // txtbx_image
+            // 
+            this.txtbx_image.Location = new System.Drawing.Point(128, 365);
+            this.txtbx_image.Name = "txtbx_image";
+            this.txtbx_image.Size = new System.Drawing.Size(613, 23);
+            this.txtbx_image.TabIndex = 30;
+            this.txtbx_image.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // lbl_image
+            // 
+            this.lbl_image.AutoSize = true;
+            this.lbl_image.Location = new System.Drawing.Point(19, 368);
+            this.lbl_image.Name = "lbl_image";
+            this.lbl_image.Size = new System.Drawing.Size(71, 15);
+            this.lbl_image.TabIndex = 31;
+            this.lbl_image.Text = "Lien Image :";
+            this.lbl_image.Click += new System.EventHandler(this.label1_Click);
+            // 
             // AjouteHackathon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lbl_image);
+            this.Controls.Add(this.txtbx_image);
             this.Controls.Add(this.lbl_nb_places);
             this.Controls.Add(this.lbl_heure_fin);
             this.Controls.Add(this.lbl_heure_debut);
@@ -328,5 +351,7 @@ namespace HackatOrgan.Forms
         private System.Windows.Forms.Label lbl_heure_fin;
         private System.Windows.Forms.Label lbl_heure_debut;
         private System.Windows.Forms.Label lbl_ville;
+        private System.Windows.Forms.TextBox txtbx_image;
+        private System.Windows.Forms.Label lbl_image;
     }
 }

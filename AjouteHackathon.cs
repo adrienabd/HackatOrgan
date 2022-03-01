@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HackatOrgan.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,6 +51,43 @@ namespace HackatOrgan.Forms
             txtbx_heure_fin.Clear();
             txtbx_date_limite.Clear();
             txtbx_nb_places.Clear();
+        }
+
+        private void btn_valider_Click(object sender, EventArgs e)
+        {
+            hackathonContext cnx = new hackathonContext();
+            //Création d'un nouvel artiste
+            Hackathon newHackathon = new Hackathon()
+            {
+            Theme = txtbx_theme.Text,
+            Lieu = txtbx_lieu.Text,
+                Rue = txtbx_rue.Text,
+                Ville = txtbx__ville.Text,
+                CodePostal = txtbx_code_postal.Text,
+                DateDebut = Convert.ToDateTime(txtbx_date_debut.Text),
+                DateFin = Convert.ToDateTime(txtbx_date_fin.Text),
+                HeureDebut = Convert.ToDateTime(txtbx_heure_debut.Text),
+                HeureFin = Convert.ToDateTime(txtbx_heure_fin.Text),
+                NbPlaces = Convert.ToInt32(txtbx_nb_places.Text),
+                DateLimite = Convert.ToDateTime(txtbx_date_limite.Text),
+                Image = txtbx_image.Text
+            };
+
+            //Ajout de l'objet au dataContext
+            cnx.Hackathons.Add(newHackathon);
+
+            //Enregistrement dans la BD
+            cnx.SaveChanges();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -15,9 +15,9 @@ namespace HackatOrgan.Models
 
         public int IdHackathon { get; set; }
         public DateTime DateDebut { get; set; }
-        public TimeSpan? HeureDebut { get; set; }
+        public DateTime? HeureDebut { get; set; }
         public DateTime? DateFin { get; set; }
-        public TimeSpan? HeureFin { get; set; }
+        public DateTime? HeureFin { get; set; }
         public string Lieu { get; set; }
         public string Rue { get; set; }
         public string Ville { get; set; }
