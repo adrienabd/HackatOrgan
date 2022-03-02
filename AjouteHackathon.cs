@@ -78,6 +78,7 @@ namespace HackatOrgan.Forms
 
             //Enregistrement dans la BD
             cnx.SaveChanges();
+            MessageBox.Show("Enregistrement Effectué");
         }
 
         private void label1_Click(object sender, EventArgs e)

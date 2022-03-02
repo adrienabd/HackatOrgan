@@ -56,15 +56,11 @@ namespace HackatOrgan.Forms
             txtbx_date.Clear();
             txtbx_heure_debut.Clear();
             txtbx_heure_fin.Clear();
-            txtbx_date_limite.Clear();
-            txtbx_nb_places.Clear();
-
         }
-
         private void btn_valider_Click(object sender, EventArgs e)
         {
-            int TE = 0;
             hackathonContext cnx = new hackathonContext();
+            int TE = 0;
             if (chckbx_type_conference.Checked == true)
             {
                 if (chckbx_type_atelier.Checked == false)
@@ -79,22 +75,33 @@ namespace HackatOrgan.Forms
                     TE = 2;
                 }
             }
-            //Création d'un nouvel Evenement
-            Evenement newEvenement = new Evenement()
+            int IdH = 0;
+            foreach (Hackathon H in cnx.Hackathons.ToList())
             {
-                Theme = txtbx_theme.Text,
-                Date = Convert.ToDateTime(txtbx_date.Text),
-                HeureDebut = TimeSpan.Parse(txtbx_heure_debut.Text),
-                HeureFin = TimeSpan.Parse(txtbx_heure_fin.Text),
-                IdHackathon = 2,
-                IdTypeEvenement = TE,
-            };
+                object Ev = combobox_hackathon.SelectedValue;
+                if (H.Theme.Equals(Ev))
+                {
+                    IdH = H.IdHackathon;
+                }
+            }
+                    //Création d'un nouvel Evenement
+                    Evenement newEvenement = new Evenement()
+            {
+                        Theme = txtbx_theme.Text,
+                        Date = Convert.ToDateTime(txtbx_date.Text),
+                        HeureDebut = TimeSpan.Parse(txtbx_heure_debut.Text),
+                        HeureFin = TimeSpan.Parse(txtbx_heure_fin.Text),
+                        IdHackathon = IdH,
+                        IdTypeEvenement = TE,
+
+                    };
 
             //Ajout de l'objet au dataContext
             cnx.Evenements.Add(newEvenement);
 
             //Enregistrement dans la BD
             cnx.SaveChanges();
+            MessageBox.Show("Enregistrement Effectué");
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
