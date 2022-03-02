@@ -46,6 +46,9 @@ namespace HackatOrgan.Forms
             this.txtbx_date = new System.Windows.Forms.TextBox();
             this.txtbx_theme = new System.Windows.Forms.TextBox();
             this.combobox_hackathon = new System.Windows.Forms.ComboBox();
+            this.lbl_type = new System.Windows.Forms.Label();
+            this.chckbx_type_conference = new System.Windows.Forms.CheckBox();
+            this.chckbx_type_atelier = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btn_valider
@@ -56,6 +59,7 @@ namespace HackatOrgan.Forms
             this.btn_valider.TabIndex = 51;
             this.btn_valider.Text = "Valider";
             this.btn_valider.UseVisualStyleBackColor = true;
+            this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
             // 
             // btn_annuler
             // 
@@ -89,7 +93,7 @@ namespace HackatOrgan.Forms
             // lbl_heure_fin
             // 
             this.lbl_heure_fin.AutoSize = true;
-            this.lbl_heure_fin.Location = new System.Drawing.Point(408, 224);
+            this.lbl_heure_fin.Location = new System.Drawing.Point(408, 250);
             this.lbl_heure_fin.Name = "lbl_heure_fin";
             this.lbl_heure_fin.Size = new System.Drawing.Size(78, 15);
             this.lbl_heure_fin.TabIndex = 72;
@@ -98,7 +102,7 @@ namespace HackatOrgan.Forms
             // lbl_heure_debut
             // 
             this.lbl_heure_debut.AutoSize = true;
-            this.lbl_heure_debut.Location = new System.Drawing.Point(408, 189);
+            this.lbl_heure_debut.Location = new System.Drawing.Point(408, 215);
             this.lbl_heure_debut.Name = "lbl_heure_debut";
             this.lbl_heure_debut.Size = new System.Drawing.Size(95, 15);
             this.lbl_heure_debut.TabIndex = 71;
@@ -116,7 +120,7 @@ namespace HackatOrgan.Forms
             // lbl_date
             // 
             this.lbl_date.AutoSize = true;
-            this.lbl_date.Location = new System.Drawing.Point(33, 189);
+            this.lbl_date.Location = new System.Drawing.Point(33, 215);
             this.lbl_date.Name = "lbl_date";
             this.lbl_date.Size = new System.Drawing.Size(80, 15);
             this.lbl_date.TabIndex = 67;
@@ -158,21 +162,21 @@ namespace HackatOrgan.Forms
             // 
             // txtbx_heure_fin
             // 
-            this.txtbx_heure_fin.Location = new System.Drawing.Point(522, 221);
+            this.txtbx_heure_fin.Location = new System.Drawing.Point(522, 247);
             this.txtbx_heure_fin.Name = "txtbx_heure_fin";
             this.txtbx_heure_fin.Size = new System.Drawing.Size(233, 23);
             this.txtbx_heure_fin.TabIndex = 60;
             // 
             // txtbx_heure_debut
             // 
-            this.txtbx_heure_debut.Location = new System.Drawing.Point(522, 189);
+            this.txtbx_heure_debut.Location = new System.Drawing.Point(522, 215);
             this.txtbx_heure_debut.Name = "txtbx_heure_debut";
             this.txtbx_heure_debut.Size = new System.Drawing.Size(233, 23);
             this.txtbx_heure_debut.TabIndex = 58;
             // 
             // txtbx_date
             // 
-            this.txtbx_date.Location = new System.Drawing.Point(142, 189);
+            this.txtbx_date.Location = new System.Drawing.Point(142, 215);
             this.txtbx_date.Name = "txtbx_date";
             this.txtbx_date.Size = new System.Drawing.Size(233, 23);
             this.txtbx_date.TabIndex = 57;
@@ -193,11 +197,43 @@ namespace HackatOrgan.Forms
             this.combobox_hackathon.TabIndex = 74;
             this.combobox_hackathon.SelectedIndexChanged += new System.EventHandler(this.combobox_hackathon_SelectedIndexChanged);
             // 
+            // lbl_type
+            // 
+            this.lbl_type.AutoSize = true;
+            this.lbl_type.Location = new System.Drawing.Point(35, 142);
+            this.lbl_type.Name = "lbl_type";
+            this.lbl_type.Size = new System.Drawing.Size(40, 15);
+            this.lbl_type.TabIndex = 75;
+            this.lbl_type.Text = "Type  :";
+            // 
+            // chckbx_type_conference
+            // 
+            this.chckbx_type_conference.AutoSize = true;
+            this.chckbx_type_conference.Location = new System.Drawing.Point(181, 142);
+            this.chckbx_type_conference.Name = "chckbx_type_conference";
+            this.chckbx_type_conference.Size = new System.Drawing.Size(87, 19);
+            this.chckbx_type_conference.TabIndex = 76;
+            this.chckbx_type_conference.Text = "Conférence";
+            this.chckbx_type_conference.UseVisualStyleBackColor = true;
+            // 
+            // chckbx_type_atelier
+            // 
+            this.chckbx_type_atelier.AutoSize = true;
+            this.chckbx_type_atelier.Location = new System.Drawing.Point(472, 138);
+            this.chckbx_type_atelier.Name = "chckbx_type_atelier";
+            this.chckbx_type_atelier.Size = new System.Drawing.Size(120, 19);
+            this.chckbx_type_atelier.TabIndex = 77;
+            this.chckbx_type_atelier.Text = "Atelier d\'initiation";
+            this.chckbx_type_atelier.UseVisualStyleBackColor = true;
+            // 
             // AjouteEvenement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.chckbx_type_atelier);
+            this.Controls.Add(this.chckbx_type_conference);
+            this.Controls.Add(this.lbl_type);
             this.Controls.Add(this.combobox_hackathon);
             this.Controls.Add(this.lbl_nb_places);
             this.Controls.Add(this.lbl_heure_fin);
@@ -241,5 +277,8 @@ namespace HackatOrgan.Forms
         private System.Windows.Forms.TextBox txtbx_date;
         private System.Windows.Forms.TextBox txtbx_theme;
         private System.Windows.Forms.ComboBox combobox_hackathon;
+        private System.Windows.Forms.Label lbl_type;
+        private System.Windows.Forms.CheckBox chckbx_type_conference;
+        private System.Windows.Forms.CheckBox chckbx_type_atelier;
     }
 }

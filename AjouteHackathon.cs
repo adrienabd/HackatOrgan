@@ -56,18 +56,18 @@ namespace HackatOrgan.Forms
         private void btn_valider_Click(object sender, EventArgs e)
         {
             hackathonContext cnx = new hackathonContext();
-            //Création d'un nouvel artiste
             Hackathon newHackathon = new Hackathon()
+
             {
-            Theme = txtbx_theme.Text,
-            Lieu = txtbx_lieu.Text,
+                Theme = txtbx_theme.Text,
+                Lieu = txtbx_lieu.Text,
                 Rue = txtbx_rue.Text,
                 Ville = txtbx__ville.Text,
                 CodePostal = txtbx_code_postal.Text,
                 DateDebut = Convert.ToDateTime(txtbx_date_debut.Text),
                 DateFin = Convert.ToDateTime(txtbx_date_fin.Text),
-                HeureDebut = Convert.ToDateTime(txtbx_heure_debut.Text),
-                HeureFin = Convert.ToDateTime(txtbx_heure_fin.Text),
+                HeureDebut = TimeSpan.Parse(txtbx_heure_debut.Text),
+                HeureFin = TimeSpan.Parse(txtbx_heure_fin.Text),
                 NbPlaces = Convert.ToInt32(txtbx_nb_places.Text),
                 DateLimite = Convert.ToDateTime(txtbx_date_limite.Text),
                 Image = txtbx_image.Text

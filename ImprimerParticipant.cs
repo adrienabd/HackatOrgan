@@ -26,7 +26,7 @@ namespace HackatOrgan
             hackathonContext cnx = new hackathonContext();
             //Création d'un document
             Document unDocument = new Document();
-            PdfWriter.GetInstance(unDocument, new FileStream("D:\\aabderrahmann\\Applis Hackathons\\Documents\\Participants."+ comboBox_hackathon.SelectedValue + ".pdf", FileMode.Create));
+            PdfWriter.GetInstance(unDocument, new FileStream("D:\\aabderrahmann\\Applis Hackathons\\Documents\\Participants." + comboBox_hackathon.SelectedValue + ".pdf", FileMode.Create));
             unDocument.Open();
 
             //Paragraphe centré avec une police de 14 et du gras
@@ -58,7 +58,7 @@ namespace HackatOrgan
                                     tableau.AddCell(Ption.DateInscription.ToString());
                                 }
                             }
-                       }
+                        }
                     }
                 }
             }
@@ -73,9 +73,10 @@ namespace HackatOrgan
         private void ImprimerParticipant_Load(object sender, EventArgs e)
         {
             hackathonContext cnx = new hackathonContext();
+            comboBox_hackathon.DataSource = cnx.Hackathons.OrderBy(Ha => Ha.IdHackathon).ToList();
             comboBox_hackathon.DisplayMember = "Theme";
             comboBox_hackathon.ValueMember = "Theme";
-            comboBox_hackathon.DataSource = cnx.Hackathons.OrderBy(Ha => Ha.IdHackathon).ToList();
+
         }
 
         private void comboBox_hackathon_SelectedIndexChanged(object sender, EventArgs e)

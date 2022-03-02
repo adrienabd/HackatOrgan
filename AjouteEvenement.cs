@@ -60,5 +60,46 @@ namespace HackatOrgan.Forms
             txtbx_nb_places.Clear();
 
         }
+
+        private void btn_valider_Click(object sender, EventArgs e)
+        {
+            int TE = 0;
+            hackathonContext cnx = new hackathonContext();
+            if (chckbx_type_conference.Checked == true)
+            {
+                if (chckbx_type_atelier.Checked == false)
+                {
+                    TE = 1;
+                }
+            }
+            if (chckbx_type_conference.Checked == false)
+            {
+                if (chckbx_type_atelier.Checked == true)
+                {
+                    TE = 2;
+                }
+            }
+            //Création d'un nouvel Evenement
+            Evenement newEvenement = new Evenement()
+            {
+                Theme = txtbx_theme.Text,
+                Date = Convert.ToDateTime(txtbx_date.Text),
+                HeureDebut = TimeSpan.Parse(txtbx_heure_debut.Text),
+                HeureFin = TimeSpan.Parse(txtbx_heure_fin.Text),
+                IdHackathon = 2,
+                IdTypeEvenement = TE,
+            };
+
+            //Ajout de l'objet au dataContext
+            cnx.Evenements.Add(newEvenement);
+
+            //Enregistrement dans la BD
+            cnx.SaveChanges();
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
