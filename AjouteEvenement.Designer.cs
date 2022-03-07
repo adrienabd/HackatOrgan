@@ -80,7 +80,7 @@ namespace HackatOrgan.Forms
             // lbl_heure_fin
             // 
             this.lbl_heure_fin.AutoSize = true;
-            this.lbl_heure_fin.Location = new System.Drawing.Point(357, 206);
+            this.lbl_heure_fin.Location = new System.Drawing.Point(357, 216);
             this.lbl_heure_fin.Name = "lbl_heure_fin";
             this.lbl_heure_fin.Size = new System.Drawing.Size(78, 15);
             this.lbl_heure_fin.TabIndex = 72;
@@ -89,7 +89,7 @@ namespace HackatOrgan.Forms
             // lbl_heure_debut
             // 
             this.lbl_heure_debut.AutoSize = true;
-            this.lbl_heure_debut.Location = new System.Drawing.Point(35, 206);
+            this.lbl_heure_debut.Location = new System.Drawing.Point(35, 216);
             this.lbl_heure_debut.Name = "lbl_heure_debut";
             this.lbl_heure_debut.Size = new System.Drawing.Size(95, 15);
             this.lbl_heure_debut.TabIndex = 71;
@@ -98,7 +98,7 @@ namespace HackatOrgan.Forms
             // lbl_date
             // 
             this.lbl_date.AutoSize = true;
-            this.lbl_date.Location = new System.Drawing.Point(35, 167);
+            this.lbl_date.Location = new System.Drawing.Point(35, 177);
             this.lbl_date.Name = "lbl_date";
             this.lbl_date.Size = new System.Drawing.Size(80, 15);
             this.lbl_date.TabIndex = 67;
@@ -126,21 +126,21 @@ namespace HackatOrgan.Forms
             // 
             // txtbx_heure_fin
             // 
-            this.txtbx_heure_fin.Location = new System.Drawing.Point(476, 203);
+            this.txtbx_heure_fin.Location = new System.Drawing.Point(476, 213);
             this.txtbx_heure_fin.Name = "txtbx_heure_fin";
             this.txtbx_heure_fin.Size = new System.Drawing.Size(116, 23);
             this.txtbx_heure_fin.TabIndex = 60;
             // 
             // txtbx_heure_debut
             // 
-            this.txtbx_heure_debut.Location = new System.Drawing.Point(181, 203);
+            this.txtbx_heure_debut.Location = new System.Drawing.Point(181, 213);
             this.txtbx_heure_debut.Name = "txtbx_heure_debut";
             this.txtbx_heure_debut.Size = new System.Drawing.Size(116, 23);
             this.txtbx_heure_debut.TabIndex = 58;
             // 
             // txtbx_date
             // 
-            this.txtbx_date.Location = new System.Drawing.Point(181, 167);
+            this.txtbx_date.Location = new System.Drawing.Point(181, 177);
             this.txtbx_date.Name = "txtbx_date";
             this.txtbx_date.Size = new System.Drawing.Size(173, 23);
             this.txtbx_date.TabIndex = 57;
@@ -194,7 +194,7 @@ namespace HackatOrgan.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 351);
+            this.ClientSize = new System.Drawing.Size(622, 351);
             this.Controls.Add(this.chckbx_type_atelier);
             this.Controls.Add(this.chckbx_type_conference);
             this.Controls.Add(this.lbl_type);

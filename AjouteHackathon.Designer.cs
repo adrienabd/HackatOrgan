@@ -38,11 +38,8 @@ namespace HackatOrgan.Forms
             this.txtbx_theme = new System.Windows.Forms.TextBox();
             this.txtbx_lieu = new System.Windows.Forms.TextBox();
             this.txtbx_heure_debut = new System.Windows.Forms.TextBox();
-            this.txtbx_date_debut = new System.Windows.Forms.TextBox();
             this.txtbx_heure_fin = new System.Windows.Forms.TextBox();
-            this.txtbx_date_fin = new System.Windows.Forms.TextBox();
             this.txtbx_nb_places = new System.Windows.Forms.TextBox();
-            this.txtbx_date_limite = new System.Windows.Forms.TextBox();
             this.lbl_theme = new System.Windows.Forms.Label();
             this.lbl_rue = new System.Windows.Forms.Label();
             this.lbl_lieu = new System.Windows.Forms.Label();
@@ -56,6 +53,9 @@ namespace HackatOrgan.Forms
             this.lbl_ville = new System.Windows.Forms.Label();
             this.txtbx_image = new System.Windows.Forms.TextBox();
             this.lbl_image = new System.Windows.Forms.Label();
+            this.datepck_debut = new System.Windows.Forms.DateTimePicker();
+            this.datepck_fin = new System.Windows.Forms.DateTimePicker();
+            this.datepck_limite = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // btn_precedent
@@ -130,13 +130,7 @@ namespace HackatOrgan.Forms
             this.txtbx_heure_debut.Name = "txtbx_heure_debut";
             this.txtbx_heure_debut.Size = new System.Drawing.Size(233, 23);
             this.txtbx_heure_debut.TabIndex = 14;
-            // 
-            // txtbx_date_debut
-            // 
-            this.txtbx_date_debut.Location = new System.Drawing.Point(128, 244);
-            this.txtbx_date_debut.Name = "txtbx_date_debut";
-            this.txtbx_date_debut.Size = new System.Drawing.Size(233, 23);
-            this.txtbx_date_debut.TabIndex = 13;
+            this.txtbx_heure_debut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtbx_heure_fin
             // 
@@ -145,26 +139,12 @@ namespace HackatOrgan.Forms
             this.txtbx_heure_fin.Size = new System.Drawing.Size(233, 23);
             this.txtbx_heure_fin.TabIndex = 16;
             // 
-            // txtbx_date_fin
-            // 
-            this.txtbx_date_fin.Location = new System.Drawing.Point(128, 276);
-            this.txtbx_date_fin.Name = "txtbx_date_fin";
-            this.txtbx_date_fin.Size = new System.Drawing.Size(233, 23);
-            this.txtbx_date_fin.TabIndex = 15;
-            // 
             // txtbx_nb_places
             // 
             this.txtbx_nb_places.Location = new System.Drawing.Point(590, 327);
             this.txtbx_nb_places.Name = "txtbx_nb_places";
             this.txtbx_nb_places.Size = new System.Drawing.Size(151, 23);
             this.txtbx_nb_places.TabIndex = 18;
-            // 
-            // txtbx_date_limite
-            // 
-            this.txtbx_date_limite.Location = new System.Drawing.Point(181, 327);
-            this.txtbx_date_limite.Name = "txtbx_date_limite";
-            this.txtbx_date_limite.Size = new System.Drawing.Size(151, 23);
-            this.txtbx_date_limite.TabIndex = 17;
             // 
             // lbl_theme
             // 
@@ -206,7 +186,7 @@ namespace HackatOrgan.Forms
             // lbl_date_debut
             // 
             this.lbl_date_debut.AutoSize = true;
-            this.lbl_date_debut.Location = new System.Drawing.Point(19, 244);
+            this.lbl_date_debut.Location = new System.Drawing.Point(19, 250);
             this.lbl_date_debut.Name = "lbl_date_debut";
             this.lbl_date_debut.Size = new System.Drawing.Size(87, 15);
             this.lbl_date_debut.TabIndex = 23;
@@ -284,11 +264,36 @@ namespace HackatOrgan.Forms
             this.lbl_image.Text = "Lien Image :";
             this.lbl_image.Click += new System.EventHandler(this.label1_Click);
             // 
+            // datepck_debut
+            // 
+            this.datepck_debut.Location = new System.Drawing.Point(137, 244);
+            this.datepck_debut.Name = "datepck_debut";
+            this.datepck_debut.Size = new System.Drawing.Size(233, 23);
+            this.datepck_debut.TabIndex = 32;
+            this.datepck_debut.ValueChanged += new System.EventHandler(this.datepck_debut_ValueChanged);
+            // 
+            // datepck_fin
+            // 
+            this.datepck_fin.Location = new System.Drawing.Point(137, 276);
+            this.datepck_fin.Name = "datepck_fin";
+            this.datepck_fin.Size = new System.Drawing.Size(233, 23);
+            this.datepck_fin.TabIndex = 33;
+            // 
+            // datepck_limite
+            // 
+            this.datepck_limite.Location = new System.Drawing.Point(164, 327);
+            this.datepck_limite.Name = "datepck_limite";
+            this.datepck_limite.Size = new System.Drawing.Size(206, 23);
+            this.datepck_limite.TabIndex = 34;
+            // 
             // AjouteHackathon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.datepck_limite);
+            this.Controls.Add(this.datepck_fin);
+            this.Controls.Add(this.datepck_debut);
             this.Controls.Add(this.lbl_image);
             this.Controls.Add(this.txtbx_image);
             this.Controls.Add(this.lbl_nb_places);
@@ -303,11 +308,8 @@ namespace HackatOrgan.Forms
             this.Controls.Add(this.lbl_rue);
             this.Controls.Add(this.lbl_theme);
             this.Controls.Add(this.txtbx_nb_places);
-            this.Controls.Add(this.txtbx_date_limite);
             this.Controls.Add(this.txtbx_heure_fin);
-            this.Controls.Add(this.txtbx_date_fin);
             this.Controls.Add(this.txtbx_heure_debut);
-            this.Controls.Add(this.txtbx_date_debut);
             this.Controls.Add(this.txtbx_lieu);
             this.Controls.Add(this.txtbx_theme);
             this.Controls.Add(this.txtbx__ville);
@@ -335,11 +337,8 @@ namespace HackatOrgan.Forms
         private System.Windows.Forms.TextBox txtbx_theme;
         private System.Windows.Forms.TextBox txtbx_lieu;
         private System.Windows.Forms.TextBox txtbx_heure_debut;
-        private System.Windows.Forms.TextBox txtbx_date_debut;
         private System.Windows.Forms.TextBox txtbx_heure_fin;
-        private System.Windows.Forms.TextBox txtbx_date_fin;
         private System.Windows.Forms.TextBox txtbx_nb_places;
-        private System.Windows.Forms.TextBox txtbx_date_limite;
         private System.Windows.Forms.Label lbl_theme;
         private System.Windows.Forms.Label lbl_rue;
         private System.Windows.Forms.Label lbl_lieu;
@@ -353,5 +352,8 @@ namespace HackatOrgan.Forms
         private System.Windows.Forms.Label lbl_ville;
         private System.Windows.Forms.TextBox txtbx_image;
         private System.Windows.Forms.Label lbl_image;
+        private System.Windows.Forms.DateTimePicker datepck_debut;
+        private System.Windows.Forms.DateTimePicker datepck_fin;
+        private System.Windows.Forms.DateTimePicker datepck_limite;
     }
 }

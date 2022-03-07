@@ -91,7 +91,7 @@ namespace HackatOrgan.Forms
                         Date = Convert.ToDateTime(txtbx_date.Text),
                         HeureDebut = TimeSpan.Parse(txtbx_heure_debut.Text),
                         HeureFin = TimeSpan.Parse(txtbx_heure_fin.Text),
-                        IdHackathon = IdH,
+                        IdHackathon = 2,
                         IdTypeEvenement = TE,
 
                     };

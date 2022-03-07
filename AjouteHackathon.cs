@@ -45,11 +45,8 @@ namespace HackatOrgan.Forms
             txtbx_rue.Clear();
             txtbx_code_postal.Clear();
             txtbx__ville.Clear();
-            txtbx_date_debut.Clear();
-            txtbx_date_fin.Clear();
             txtbx_heure_debut.Clear();
             txtbx_heure_fin.Clear();
-            txtbx_date_limite.Clear();
             txtbx_nb_places.Clear();
         }
 
@@ -64,12 +61,12 @@ namespace HackatOrgan.Forms
                 Rue = txtbx_rue.Text,
                 Ville = txtbx__ville.Text,
                 CodePostal = txtbx_code_postal.Text,
-                DateDebut = Convert.ToDateTime(txtbx_date_debut.Text),
-                DateFin = Convert.ToDateTime(txtbx_date_fin.Text),
+                DateDebut = datepck_debut.Value,
+                DateFin = datepck_limite.Value,
                 HeureDebut = TimeSpan.Parse(txtbx_heure_debut.Text),
                 HeureFin = TimeSpan.Parse(txtbx_heure_fin.Text),
                 NbPlaces = Convert.ToInt32(txtbx_nb_places.Text),
-                DateLimite = Convert.ToDateTime(txtbx_date_limite.Text),
+                DateLimite = datepck_fin.Value,
                 Image = txtbx_image.Text
             };
 
@@ -87,6 +84,11 @@ namespace HackatOrgan.Forms
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void datepck_debut_ValueChanged(object sender, EventArgs e)
         {
 
         }
