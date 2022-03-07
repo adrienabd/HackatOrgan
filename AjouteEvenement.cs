@@ -53,7 +53,6 @@ namespace HackatOrgan.Forms
         private void btn_annuler_Click(object sender, EventArgs e)
         {
             txtbx_theme.Clear();
-            txtbx_date.Clear();
             txtbx_heure_debut.Clear();
             txtbx_heure_fin.Clear();
         }
@@ -75,11 +74,11 @@ namespace HackatOrgan.Forms
                     TE = 2;
                 }
             }
-            int IdH = 0;
+            //Récupère l'Id de l'Hackathon selectionné
+            int IdH = 3;
             foreach (Hackathon H in cnx.Hackathons.ToList())
             {
-                object Ev = combobox_hackathon.SelectedValue;
-                if (H.Theme.Equals(Ev))
+                if (H.Theme == combobox_hackathon.Text)
                 {
                     IdH = H.IdHackathon;
                 }
@@ -88,10 +87,10 @@ namespace HackatOrgan.Forms
                     Evenement newEvenement = new Evenement()
             {
                         Theme = txtbx_theme.Text,
-                        Date = Convert.ToDateTime(txtbx_date.Text),
+                        Date = datepck_date.Value,
                         HeureDebut = TimeSpan.Parse(txtbx_heure_debut.Text),
                         HeureFin = TimeSpan.Parse(txtbx_heure_fin.Text),
-                        IdHackathon = 2,
+                        IdHackathon = IdH,
                         IdTypeEvenement = TE,
 
                     };

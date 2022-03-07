@@ -39,12 +39,12 @@ namespace HackatOrgan.Forms
             this.lbl_theme = new System.Windows.Forms.Label();
             this.txtbx_heure_fin = new System.Windows.Forms.TextBox();
             this.txtbx_heure_debut = new System.Windows.Forms.TextBox();
-            this.txtbx_date = new System.Windows.Forms.TextBox();
             this.txtbx_theme = new System.Windows.Forms.TextBox();
             this.combobox_hackathon = new System.Windows.Forms.ComboBox();
             this.lbl_type = new System.Windows.Forms.Label();
             this.chckbx_type_atelier = new System.Windows.Forms.CheckBox();
             this.chckbx_type_conference = new System.Windows.Forms.CheckBox();
+            this.datepck_date = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // btn_valider
@@ -138,13 +138,6 @@ namespace HackatOrgan.Forms
             this.txtbx_heure_debut.Size = new System.Drawing.Size(116, 23);
             this.txtbx_heure_debut.TabIndex = 58;
             // 
-            // txtbx_date
-            // 
-            this.txtbx_date.Location = new System.Drawing.Point(181, 177);
-            this.txtbx_date.Name = "txtbx_date";
-            this.txtbx_date.Size = new System.Drawing.Size(173, 23);
-            this.txtbx_date.TabIndex = 57;
-            // 
             // txtbx_theme
             // 
             this.txtbx_theme.Location = new System.Drawing.Point(181, 70);
@@ -190,11 +183,19 @@ namespace HackatOrgan.Forms
             this.chckbx_type_conference.Text = "Conférence";
             this.chckbx_type_conference.UseVisualStyleBackColor = true;
             // 
+            // datepck_date
+            // 
+            this.datepck_date.Location = new System.Drawing.Point(181, 171);
+            this.datepck_date.Name = "datepck_date";
+            this.datepck_date.Size = new System.Drawing.Size(173, 23);
+            this.datepck_date.TabIndex = 78;
+            // 
             // AjouteEvenement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(622, 351);
+            this.Controls.Add(this.datepck_date);
             this.Controls.Add(this.chckbx_type_atelier);
             this.Controls.Add(this.chckbx_type_conference);
             this.Controls.Add(this.lbl_type);
@@ -206,7 +207,6 @@ namespace HackatOrgan.Forms
             this.Controls.Add(this.lbl_theme);
             this.Controls.Add(this.txtbx_heure_fin);
             this.Controls.Add(this.txtbx_heure_debut);
-            this.Controls.Add(this.txtbx_date);
             this.Controls.Add(this.txtbx_theme);
             this.Controls.Add(this.btn_valider);
             this.Controls.Add(this.btn_annuler);
@@ -230,11 +230,11 @@ namespace HackatOrgan.Forms
         private System.Windows.Forms.Label lbl_theme;
         private System.Windows.Forms.TextBox txtbx_heure_fin;
         private System.Windows.Forms.TextBox txtbx_heure_debut;
-        private System.Windows.Forms.TextBox txtbx_date;
         private System.Windows.Forms.TextBox txtbx_theme;
         private System.Windows.Forms.ComboBox combobox_hackathon;
         private System.Windows.Forms.Label lbl_type;
         private System.Windows.Forms.CheckBox chckbx_type_atelier;
         private System.Windows.Forms.CheckBox chckbx_type_conference;
+        private System.Windows.Forms.DateTimePicker datepck_date;
     }
 }
