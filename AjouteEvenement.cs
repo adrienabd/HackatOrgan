@@ -60,22 +60,29 @@ namespace HackatOrgan.Forms
         {
             hackathonContext cnx = new hackathonContext();
             int TE = 0;
-            if (chckbx_type_conference.Checked == true)
+            if (btnradio_conference.Checked == true)
             {
-                if (chckbx_type_atelier.Checked == false)
+                if (btnradio_atelier.Checked == false)
                 {
                     TE = 1;
                 }
             }
-            if (chckbx_type_conference.Checked == false)
+            if (btnradio_conference.Checked == false)
             {
-                if (chckbx_type_atelier.Checked == true)
+                if (btnradio_atelier.Checked == true)
                 {
                     TE = 2;
                 }
             }
+            if (btnradio_conference.Checked == false)
+            {
+                if (btnradio_atelier.Checked == false)
+                {
+                    MessageBox.Show("Veuillez choisir un type d'évenement"); ;
+                }
+            }
             //Récupère l'Id de l'Hackathon selectionné
-            int IdH = 3;
+            int IdH = 0;
             foreach (Hackathon H in cnx.Hackathons.ToList())
             {
                 if (H.Theme == combobox_hackathon.Text)
@@ -83,17 +90,16 @@ namespace HackatOrgan.Forms
                     IdH = H.IdHackathon;
                 }
             }
-                    //Création d'un nouvel Evenement
-                    Evenement newEvenement = new Evenement()
+            //Création d'un nouvel Evenement
+            Evenement newEvenement = new Evenement()
             {
-                        Theme = txtbx_theme.Text,
-                        Date = datepck_date.Value,
-                        HeureDebut = TimeSpan.Parse(txtbx_heure_debut.Text),
-                        HeureFin = TimeSpan.Parse(txtbx_heure_fin.Text),
-                        IdHackathon = IdH,
-                        IdTypeEvenement = TE,
-
-                    };
+                Theme = txtbx_theme.Text,
+                Date = datepck_date.Value,
+                HeureDebut = TimeSpan.Parse((Convert.ToString(datepck_debut.Value)).Substring(11)),
+                HeureFin = TimeSpan.Parse((Convert.ToString(datepck_fin.Value)).Substring(11)),
+                IdHackathon = IdH,
+                IdTypeEvenement = TE,
+            };
 
             //Ajout de l'objet au dataContext
             cnx.Evenements.Add(newEvenement);
@@ -104,6 +110,11 @@ namespace HackatOrgan.Forms
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
 
         }

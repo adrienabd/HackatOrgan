@@ -37,14 +37,16 @@ namespace HackatOrgan.Forms
             this.lbl_date = new System.Windows.Forms.Label();
             this.lbl_hackathon = new System.Windows.Forms.Label();
             this.lbl_theme = new System.Windows.Forms.Label();
-            this.txtbx_heure_fin = new System.Windows.Forms.TextBox();
-            this.txtbx_heure_debut = new System.Windows.Forms.TextBox();
             this.txtbx_theme = new System.Windows.Forms.TextBox();
             this.combobox_hackathon = new System.Windows.Forms.ComboBox();
             this.lbl_type = new System.Windows.Forms.Label();
-            this.chckbx_type_atelier = new System.Windows.Forms.CheckBox();
-            this.chckbx_type_conference = new System.Windows.Forms.CheckBox();
             this.datepck_date = new System.Windows.Forms.DateTimePicker();
+            this.btnradio_conference = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnradio_atelier = new System.Windows.Forms.RadioButton();
+            this.datepck_fin = new System.Windows.Forms.DateTimePicker();
+            this.datepck_debut = new System.Windows.Forms.DateTimePicker();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_valider
@@ -80,7 +82,7 @@ namespace HackatOrgan.Forms
             // lbl_heure_fin
             // 
             this.lbl_heure_fin.AutoSize = true;
-            this.lbl_heure_fin.Location = new System.Drawing.Point(357, 216);
+            this.lbl_heure_fin.Location = new System.Drawing.Point(357, 240);
             this.lbl_heure_fin.Name = "lbl_heure_fin";
             this.lbl_heure_fin.Size = new System.Drawing.Size(78, 15);
             this.lbl_heure_fin.TabIndex = 72;
@@ -89,7 +91,7 @@ namespace HackatOrgan.Forms
             // lbl_heure_debut
             // 
             this.lbl_heure_debut.AutoSize = true;
-            this.lbl_heure_debut.Location = new System.Drawing.Point(35, 216);
+            this.lbl_heure_debut.Location = new System.Drawing.Point(35, 240);
             this.lbl_heure_debut.Name = "lbl_heure_debut";
             this.lbl_heure_debut.Size = new System.Drawing.Size(95, 15);
             this.lbl_heure_debut.TabIndex = 71;
@@ -98,7 +100,7 @@ namespace HackatOrgan.Forms
             // lbl_date
             // 
             this.lbl_date.AutoSize = true;
-            this.lbl_date.Location = new System.Drawing.Point(35, 177);
+            this.lbl_date.Location = new System.Drawing.Point(35, 201);
             this.lbl_date.Name = "lbl_date";
             this.lbl_date.Size = new System.Drawing.Size(80, 15);
             this.lbl_date.TabIndex = 67;
@@ -124,20 +126,6 @@ namespace HackatOrgan.Forms
             this.lbl_theme.TabIndex = 63;
             this.lbl_theme.Text = "Theme :";
             // 
-            // txtbx_heure_fin
-            // 
-            this.txtbx_heure_fin.Location = new System.Drawing.Point(476, 213);
-            this.txtbx_heure_fin.Name = "txtbx_heure_fin";
-            this.txtbx_heure_fin.Size = new System.Drawing.Size(116, 23);
-            this.txtbx_heure_fin.TabIndex = 60;
-            // 
-            // txtbx_heure_debut
-            // 
-            this.txtbx_heure_debut.Location = new System.Drawing.Point(181, 213);
-            this.txtbx_heure_debut.Name = "txtbx_heure_debut";
-            this.txtbx_heure_debut.Size = new System.Drawing.Size(116, 23);
-            this.txtbx_heure_debut.TabIndex = 58;
-            // 
             // txtbx_theme
             // 
             this.txtbx_theme.Location = new System.Drawing.Point(181, 70);
@@ -157,47 +145,77 @@ namespace HackatOrgan.Forms
             // lbl_type
             // 
             this.lbl_type.AutoSize = true;
-            this.lbl_type.Location = new System.Drawing.Point(35, 142);
+            this.lbl_type.Location = new System.Drawing.Point(35, 155);
             this.lbl_type.Name = "lbl_type";
             this.lbl_type.Size = new System.Drawing.Size(40, 15);
             this.lbl_type.TabIndex = 75;
             this.lbl_type.Text = "Type  :";
             // 
-            // chckbx_type_atelier
-            // 
-            this.chckbx_type_atelier.AutoSize = true;
-            this.chckbx_type_atelier.Location = new System.Drawing.Point(452, 141);
-            this.chckbx_type_atelier.Name = "chckbx_type_atelier";
-            this.chckbx_type_atelier.Size = new System.Drawing.Size(120, 19);
-            this.chckbx_type_atelier.TabIndex = 77;
-            this.chckbx_type_atelier.Text = "Atelier d\'initiation";
-            this.chckbx_type_atelier.UseVisualStyleBackColor = true;
-            // 
-            // chckbx_type_conference
-            // 
-            this.chckbx_type_conference.AutoSize = true;
-            this.chckbx_type_conference.Location = new System.Drawing.Point(210, 142);
-            this.chckbx_type_conference.Name = "chckbx_type_conference";
-            this.chckbx_type_conference.Size = new System.Drawing.Size(87, 19);
-            this.chckbx_type_conference.TabIndex = 76;
-            this.chckbx_type_conference.Text = "Conférence";
-            this.chckbx_type_conference.UseVisualStyleBackColor = true;
-            // 
             // datepck_date
             // 
-            this.datepck_date.Location = new System.Drawing.Point(181, 171);
+            this.datepck_date.Location = new System.Drawing.Point(181, 195);
             this.datepck_date.Name = "datepck_date";
             this.datepck_date.Size = new System.Drawing.Size(173, 23);
             this.datepck_date.TabIndex = 78;
+            // 
+            // btnradio_conference
+            // 
+            this.btnradio_conference.AutoSize = true;
+            this.btnradio_conference.Location = new System.Drawing.Point(22, 22);
+            this.btnradio_conference.Name = "btnradio_conference";
+            this.btnradio_conference.Size = new System.Drawing.Size(86, 19);
+            this.btnradio_conference.TabIndex = 79;
+            this.btnradio_conference.TabStop = true;
+            this.btnradio_conference.Text = "Conférence";
+            this.btnradio_conference.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnradio_atelier);
+            this.groupBox1.Controls.Add(this.btnradio_conference);
+            this.groupBox1.Location = new System.Drawing.Point(181, 133);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(284, 56);
+            this.groupBox1.TabIndex = 80;
+            this.groupBox1.TabStop = false;
+            // 
+            // btnradio_atelier
+            // 
+            this.btnradio_atelier.AutoSize = true;
+            this.btnradio_atelier.Location = new System.Drawing.Point(160, 22);
+            this.btnradio_atelier.Name = "btnradio_atelier";
+            this.btnradio_atelier.Size = new System.Drawing.Size(119, 19);
+            this.btnradio_atelier.TabIndex = 80;
+            this.btnradio_atelier.TabStop = true;
+            this.btnradio_atelier.Text = "Atelier d\'Initiation";
+            this.btnradio_atelier.UseVisualStyleBackColor = true;
+            this.btnradio_atelier.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // datepck_fin
+            // 
+            this.datepck_fin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.datepck_fin.Location = new System.Drawing.Point(476, 234);
+            this.datepck_fin.Name = "datepck_fin";
+            this.datepck_fin.Size = new System.Drawing.Size(116, 23);
+            this.datepck_fin.TabIndex = 82;
+            // 
+            // datepck_debut
+            // 
+            this.datepck_debut.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.datepck_debut.Location = new System.Drawing.Point(173, 234);
+            this.datepck_debut.Name = "datepck_debut";
+            this.datepck_debut.Size = new System.Drawing.Size(116, 23);
+            this.datepck_debut.TabIndex = 83;
             // 
             // AjouteEvenement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(622, 351);
+            this.Controls.Add(this.datepck_debut);
+            this.Controls.Add(this.datepck_fin);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.datepck_date);
-            this.Controls.Add(this.chckbx_type_atelier);
-            this.Controls.Add(this.chckbx_type_conference);
             this.Controls.Add(this.lbl_type);
             this.Controls.Add(this.combobox_hackathon);
             this.Controls.Add(this.lbl_heure_fin);
@@ -205,8 +223,6 @@ namespace HackatOrgan.Forms
             this.Controls.Add(this.lbl_date);
             this.Controls.Add(this.lbl_hackathon);
             this.Controls.Add(this.lbl_theme);
-            this.Controls.Add(this.txtbx_heure_fin);
-            this.Controls.Add(this.txtbx_heure_debut);
             this.Controls.Add(this.txtbx_theme);
             this.Controls.Add(this.btn_valider);
             this.Controls.Add(this.btn_annuler);
@@ -214,6 +230,8 @@ namespace HackatOrgan.Forms
             this.Name = "AjouteEvenement";
             this.Text = "AjouteEvenement";
             this.Load += new System.EventHandler(this.AjouteEvenement_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,8 +251,11 @@ namespace HackatOrgan.Forms
         private System.Windows.Forms.TextBox txtbx_theme;
         private System.Windows.Forms.ComboBox combobox_hackathon;
         private System.Windows.Forms.Label lbl_type;
-        private System.Windows.Forms.CheckBox chckbx_type_atelier;
-        private System.Windows.Forms.CheckBox chckbx_type_conference;
         private System.Windows.Forms.DateTimePicker datepck_date;
+        private System.Windows.Forms.RadioButton btnradio_conference;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton btnradio_atelier;
+        private System.Windows.Forms.DateTimePicker datepck_fin;
+        private System.Windows.Forms.DateTimePicker datepck_debut;
     }
 }
