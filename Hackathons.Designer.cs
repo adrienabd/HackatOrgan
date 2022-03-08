@@ -29,6 +29,7 @@ namespace HackatOrgan.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hackathons));
             this.btn_ajouter_hackathon = new System.Windows.Forms.Button();
             this.btn_imprimer = new System.Windows.Forms.Button();
             this.btn_ajout_evenement = new System.Windows.Forms.Button();
@@ -68,10 +69,12 @@ namespace HackatOrgan.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(246, 180);
             this.Controls.Add(this.btn_ajout_evenement);
             this.Controls.Add(this.btn_imprimer);
             this.Controls.Add(this.btn_ajouter_hackathon);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Hackathons";
             this.Text = "Hackathons";
             this.Load += new System.EventHandler(this.Hackathons_Load_1);

@@ -29,6 +29,7 @@ namespace HackatOrgan.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AjouteHackathon));
             this.btn_precedent = new System.Windows.Forms.Button();
             this.btn_annuler = new System.Windows.Forms.Button();
             this.btn_valider = new System.Windows.Forms.Button();
@@ -62,32 +63,35 @@ namespace HackatOrgan.Forms
             // 
             // btn_precedent
             // 
-            this.btn_precedent.Location = new System.Drawing.Point(5, 8);
+            this.btn_precedent.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btn_precedent.Location = new System.Drawing.Point(12, 12);
             this.btn_precedent.Name = "btn_precedent";
-            this.btn_precedent.Size = new System.Drawing.Size(81, 28);
+            this.btn_precedent.Size = new System.Drawing.Size(149, 34);
             this.btn_precedent.TabIndex = 0;
             this.btn_precedent.Text = "Précedent";
-            this.btn_precedent.UseVisualStyleBackColor = true;
+            this.btn_precedent.UseVisualStyleBackColor = false;
             this.btn_precedent.Click += new System.EventHandler(this.btn_precedent_Click);
             // 
             // btn_annuler
             // 
-            this.btn_annuler.Location = new System.Drawing.Point(97, 394);
+            this.btn_annuler.BackColor = System.Drawing.Color.Red;
+            this.btn_annuler.Location = new System.Drawing.Point(19, 404);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Size = new System.Drawing.Size(147, 34);
             this.btn_annuler.TabIndex = 1;
             this.btn_annuler.Text = "Annuler";
-            this.btn_annuler.UseVisualStyleBackColor = true;
+            this.btn_annuler.UseVisualStyleBackColor = false;
             this.btn_annuler.Click += new System.EventHandler(this.btn_annuler_Click);
             // 
             // btn_valider
             // 
-            this.btn_valider.Location = new System.Drawing.Point(548, 394);
+            this.btn_valider.BackColor = System.Drawing.Color.LimeGreen;
+            this.btn_valider.Location = new System.Drawing.Point(592, 404);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Size = new System.Drawing.Size(149, 34);
             this.btn_valider.TabIndex = 2;
             this.btn_valider.Text = "Valider";
-            this.btn_valider.UseVisualStyleBackColor = true;
+            this.btn_valider.UseVisualStyleBackColor = false;
             this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
             // 
             // txtbx_rue
@@ -327,6 +331,7 @@ namespace HackatOrgan.Forms
             this.Controls.Add(this.btn_valider);
             this.Controls.Add(this.btn_annuler);
             this.Controls.Add(this.btn_precedent);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AjouteHackathon";
             this.Text = "AjouteHackathon";
             this.Load += new System.EventHandler(this.AjouteHackathon_Load);

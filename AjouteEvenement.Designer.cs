@@ -29,6 +29,7 @@ namespace HackatOrgan.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AjouteEvenement));
             this.btn_valider = new System.Windows.Forms.Button();
             this.btn_annuler = new System.Windows.Forms.Button();
             this.btn_precedent = new System.Windows.Forms.Button();
@@ -51,38 +52,41 @@ namespace HackatOrgan.Forms
             // 
             // btn_valider
             // 
-            this.btn_valider.Location = new System.Drawing.Point(373, 293);
+            this.btn_valider.BackColor = System.Drawing.Color.LimeGreen;
+            this.btn_valider.Location = new System.Drawing.Point(380, 261);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Size = new System.Drawing.Size(149, 34);
             this.btn_valider.TabIndex = 51;
             this.btn_valider.Text = "Valider";
-            this.btn_valider.UseVisualStyleBackColor = true;
+            this.btn_valider.UseVisualStyleBackColor = false;
             this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
             // 
             // btn_annuler
             // 
-            this.btn_annuler.Location = new System.Drawing.Point(67, 293);
+            this.btn_annuler.BackColor = System.Drawing.Color.Red;
+            this.btn_annuler.Location = new System.Drawing.Point(15, 261);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Size = new System.Drawing.Size(147, 34);
             this.btn_annuler.TabIndex = 50;
             this.btn_annuler.Text = "Annuler";
-            this.btn_annuler.UseVisualStyleBackColor = true;
+            this.btn_annuler.UseVisualStyleBackColor = false;
             this.btn_annuler.Click += new System.EventHandler(this.btn_annuler_Click);
             // 
             // btn_precedent
             // 
-            this.btn_precedent.Location = new System.Drawing.Point(12, 12);
+            this.btn_precedent.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btn_precedent.Location = new System.Drawing.Point(15, 12);
             this.btn_precedent.Name = "btn_precedent";
-            this.btn_precedent.Size = new System.Drawing.Size(91, 35);
+            this.btn_precedent.Size = new System.Drawing.Size(147, 35);
             this.btn_precedent.TabIndex = 49;
             this.btn_precedent.Text = "Précedent";
-            this.btn_precedent.UseVisualStyleBackColor = true;
+            this.btn_precedent.UseVisualStyleBackColor = false;
             this.btn_precedent.Click += new System.EventHandler(this.btn_precedent_Click);
             // 
             // lbl_heure_fin
             // 
             this.lbl_heure_fin.AutoSize = true;
-            this.lbl_heure_fin.Location = new System.Drawing.Point(357, 240);
+            this.lbl_heure_fin.Location = new System.Drawing.Point(307, 227);
             this.lbl_heure_fin.Name = "lbl_heure_fin";
             this.lbl_heure_fin.Size = new System.Drawing.Size(78, 15);
             this.lbl_heure_fin.TabIndex = 72;
@@ -91,7 +95,7 @@ namespace HackatOrgan.Forms
             // lbl_heure_debut
             // 
             this.lbl_heure_debut.AutoSize = true;
-            this.lbl_heure_debut.Location = new System.Drawing.Point(35, 240);
+            this.lbl_heure_debut.Location = new System.Drawing.Point(15, 227);
             this.lbl_heure_debut.Name = "lbl_heure_debut";
             this.lbl_heure_debut.Size = new System.Drawing.Size(95, 15);
             this.lbl_heure_debut.TabIndex = 71;
@@ -100,7 +104,7 @@ namespace HackatOrgan.Forms
             // lbl_date
             // 
             this.lbl_date.AutoSize = true;
-            this.lbl_date.Location = new System.Drawing.Point(35, 201);
+            this.lbl_date.Location = new System.Drawing.Point(15, 188);
             this.lbl_date.Name = "lbl_date";
             this.lbl_date.Size = new System.Drawing.Size(80, 15);
             this.lbl_date.TabIndex = 67;
@@ -110,7 +114,7 @@ namespace HackatOrgan.Forms
             // lbl_hackathon
             // 
             this.lbl_hackathon.AutoSize = true;
-            this.lbl_hackathon.Location = new System.Drawing.Point(35, 107);
+            this.lbl_hackathon.Location = new System.Drawing.Point(15, 104);
             this.lbl_hackathon.Name = "lbl_hackathon";
             this.lbl_hackathon.Size = new System.Drawing.Size(71, 15);
             this.lbl_hackathon.TabIndex = 65;
@@ -120,7 +124,7 @@ namespace HackatOrgan.Forms
             // lbl_theme
             // 
             this.lbl_theme.AutoSize = true;
-            this.lbl_theme.Location = new System.Drawing.Point(35, 78);
+            this.lbl_theme.Location = new System.Drawing.Point(12, 70);
             this.lbl_theme.Name = "lbl_theme";
             this.lbl_theme.Size = new System.Drawing.Size(49, 15);
             this.lbl_theme.TabIndex = 63;
@@ -128,7 +132,7 @@ namespace HackatOrgan.Forms
             // 
             // txtbx_theme
             // 
-            this.txtbx_theme.Location = new System.Drawing.Point(181, 70);
+            this.txtbx_theme.Location = new System.Drawing.Point(118, 67);
             this.txtbx_theme.Name = "txtbx_theme";
             this.txtbx_theme.Size = new System.Drawing.Size(411, 23);
             this.txtbx_theme.TabIndex = 55;
@@ -136,7 +140,7 @@ namespace HackatOrgan.Forms
             // combobox_hackathon
             // 
             this.combobox_hackathon.FormattingEnabled = true;
-            this.combobox_hackathon.Location = new System.Drawing.Point(181, 104);
+            this.combobox_hackathon.Location = new System.Drawing.Point(118, 101);
             this.combobox_hackathon.Name = "combobox_hackathon";
             this.combobox_hackathon.Size = new System.Drawing.Size(411, 23);
             this.combobox_hackathon.TabIndex = 74;
@@ -145,7 +149,7 @@ namespace HackatOrgan.Forms
             // lbl_type
             // 
             this.lbl_type.AutoSize = true;
-            this.lbl_type.Location = new System.Drawing.Point(35, 155);
+            this.lbl_type.Location = new System.Drawing.Point(15, 142);
             this.lbl_type.Name = "lbl_type";
             this.lbl_type.Size = new System.Drawing.Size(40, 15);
             this.lbl_type.TabIndex = 75;
@@ -153,7 +157,7 @@ namespace HackatOrgan.Forms
             // 
             // datepck_date
             // 
-            this.datepck_date.Location = new System.Drawing.Point(181, 195);
+            this.datepck_date.Location = new System.Drawing.Point(118, 182);
             this.datepck_date.Name = "datepck_date";
             this.datepck_date.Size = new System.Drawing.Size(173, 23);
             this.datepck_date.TabIndex = 78;
@@ -161,7 +165,7 @@ namespace HackatOrgan.Forms
             // btnradio_conference
             // 
             this.btnradio_conference.AutoSize = true;
-            this.btnradio_conference.Location = new System.Drawing.Point(22, 22);
+            this.btnradio_conference.Location = new System.Drawing.Point(12, 12);
             this.btnradio_conference.Name = "btnradio_conference";
             this.btnradio_conference.Size = new System.Drawing.Size(86, 19);
             this.btnradio_conference.TabIndex = 79;
@@ -173,16 +177,16 @@ namespace HackatOrgan.Forms
             // 
             this.groupBox1.Controls.Add(this.btnradio_atelier);
             this.groupBox1.Controls.Add(this.btnradio_conference);
-            this.groupBox1.Location = new System.Drawing.Point(181, 133);
+            this.groupBox1.Location = new System.Drawing.Point(118, 130);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(284, 56);
+            this.groupBox1.Size = new System.Drawing.Size(284, 42);
             this.groupBox1.TabIndex = 80;
             this.groupBox1.TabStop = false;
             // 
             // btnradio_atelier
             // 
             this.btnradio_atelier.AutoSize = true;
-            this.btnradio_atelier.Location = new System.Drawing.Point(160, 22);
+            this.btnradio_atelier.Location = new System.Drawing.Point(159, 12);
             this.btnradio_atelier.Name = "btnradio_atelier";
             this.btnradio_atelier.Size = new System.Drawing.Size(119, 19);
             this.btnradio_atelier.TabIndex = 80;
@@ -194,7 +198,7 @@ namespace HackatOrgan.Forms
             // datepck_fin
             // 
             this.datepck_fin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.datepck_fin.Location = new System.Drawing.Point(476, 234);
+            this.datepck_fin.Location = new System.Drawing.Point(413, 219);
             this.datepck_fin.Name = "datepck_fin";
             this.datepck_fin.Size = new System.Drawing.Size(116, 23);
             this.datepck_fin.TabIndex = 82;
@@ -202,16 +206,16 @@ namespace HackatOrgan.Forms
             // datepck_debut
             // 
             this.datepck_debut.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.datepck_debut.Location = new System.Drawing.Point(173, 234);
+            this.datepck_debut.Location = new System.Drawing.Point(118, 221);
             this.datepck_debut.Name = "datepck_debut";
-            this.datepck_debut.Size = new System.Drawing.Size(116, 23);
+            this.datepck_debut.Size = new System.Drawing.Size(173, 23);
             this.datepck_debut.TabIndex = 83;
             // 
             // AjouteEvenement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(622, 351);
+            this.ClientSize = new System.Drawing.Size(547, 307);
             this.Controls.Add(this.datepck_debut);
             this.Controls.Add(this.datepck_fin);
             this.Controls.Add(this.groupBox1);
@@ -227,6 +231,7 @@ namespace HackatOrgan.Forms
             this.Controls.Add(this.btn_valider);
             this.Controls.Add(this.btn_annuler);
             this.Controls.Add(this.btn_precedent);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AjouteEvenement";
             this.Text = "AjouteEvenement";
             this.Load += new System.EventHandler(this.AjouteEvenement_Load);

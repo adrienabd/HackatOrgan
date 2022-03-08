@@ -29,6 +29,7 @@ namespace HackatOrgan
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImprimerParticipant));
             this.comboBox_hackathon = new System.Windows.Forms.ComboBox();
             this.lbl_hackathon = new System.Windows.Forms.Label();
             this.btn_imprimer = new System.Windows.Forms.Button();
@@ -38,16 +39,16 @@ namespace HackatOrgan
             // comboBox_hackathon
             // 
             this.comboBox_hackathon.FormattingEnabled = true;
-            this.comboBox_hackathon.Location = new System.Drawing.Point(140, 56);
+            this.comboBox_hackathon.Location = new System.Drawing.Point(118, 69);
             this.comboBox_hackathon.Name = "comboBox_hackathon";
-            this.comboBox_hackathon.Size = new System.Drawing.Size(171, 23);
+            this.comboBox_hackathon.Size = new System.Drawing.Size(149, 23);
             this.comboBox_hackathon.TabIndex = 0;
             this.comboBox_hackathon.SelectedIndexChanged += new System.EventHandler(this.comboBox_hackathon_SelectedIndexChanged);
             // 
             // lbl_hackathon
             // 
             this.lbl_hackathon.AutoSize = true;
-            this.lbl_hackathon.Location = new System.Drawing.Point(34, 59);
+            this.lbl_hackathon.Location = new System.Drawing.Point(12, 72);
             this.lbl_hackathon.Name = "lbl_hackathon";
             this.lbl_hackathon.Size = new System.Drawing.Size(71, 15);
             this.lbl_hackathon.TabIndex = 2;
@@ -55,33 +56,36 @@ namespace HackatOrgan
             // 
             // btn_imprimer
             // 
-            this.btn_imprimer.Location = new System.Drawing.Point(171, 117);
+            this.btn_imprimer.BackColor = System.Drawing.Color.PaleGreen;
+            this.btn_imprimer.Location = new System.Drawing.Point(12, 127);
             this.btn_imprimer.Name = "btn_imprimer";
-            this.btn_imprimer.Size = new System.Drawing.Size(75, 23);
+            this.btn_imprimer.Size = new System.Drawing.Size(255, 34);
             this.btn_imprimer.TabIndex = 3;
             this.btn_imprimer.Text = "Imprimer";
-            this.btn_imprimer.UseVisualStyleBackColor = true;
+            this.btn_imprimer.UseVisualStyleBackColor = false;
             this.btn_imprimer.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_precedent
             // 
+            this.btn_precedent.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btn_precedent.Location = new System.Drawing.Point(12, 12);
             this.btn_precedent.Name = "btn_precedent";
-            this.btn_precedent.Size = new System.Drawing.Size(91, 35);
+            this.btn_precedent.Size = new System.Drawing.Size(255, 34);
             this.btn_precedent.TabIndex = 50;
             this.btn_precedent.Text = "Précedent";
-            this.btn_precedent.UseVisualStyleBackColor = true;
+            this.btn_precedent.UseVisualStyleBackColor = false;
             this.btn_precedent.Click += new System.EventHandler(this.btn_precedent_Click);
             // 
             // ImprimerParticipant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 156);
+            this.ClientSize = new System.Drawing.Size(281, 173);
             this.Controls.Add(this.btn_precedent);
             this.Controls.Add(this.btn_imprimer);
             this.Controls.Add(this.lbl_hackathon);
             this.Controls.Add(this.comboBox_hackathon);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ImprimerParticipant";
             this.Text = "ImprimerParticipant";
             this.Load += new System.EventHandler(this.ImprimerParticipant_Load);
