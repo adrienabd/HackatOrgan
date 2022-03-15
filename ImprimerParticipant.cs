@@ -33,6 +33,8 @@ namespace HackatOrgan
 
             //Création d'un tableau
             PdfPTable tableau = new PdfPTable(3);
+            tableau.AddCell("Nom");
+            tableau.AddCell("Prenom");
 
             //Remplissage avec la liste des clients
             foreach (Hackathon H in cnx.Hackathons.ToList())
@@ -50,7 +52,7 @@ namespace HackatOrgan
                                 {
                                     tableau.AddCell(P.Nom);
                                     tableau.AddCell(P.Prenom);
-                                    tableau.AddCell(Ption.DateInscription.ToString());
+                                    
                                 }
                             }
                         }
