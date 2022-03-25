@@ -31,5 +31,25 @@ namespace HackatOrgan.Forms
         {
 
         }
+
+        private void btn_precedent_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_annuler_Click(object sender, EventArgs e)
+        {
+            txtbx_theme.Clear();
+            txtbx_lieu.Clear();
+            txtbx_rue.Clear();
+            txtbx_code_postal.Clear();
+            txtbx__ville.Clear();
+            txtbx_date_debut.Clear();
+            txtbx_date_fin.Clear();
+            txtbx_heure_debut.Clear();
+            txtbx_heure_fin.Clear();
+            txtbx_date_limite.Clear();
+            txtbx_nb_places.Clear();
+        }
     }
 }

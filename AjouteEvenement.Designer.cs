@@ -43,7 +43,7 @@ namespace HackatOrgan.Forms
             this.txtbx_date_limite = new System.Windows.Forms.TextBox();
             this.txtbx_heure_fin = new System.Windows.Forms.TextBox();
             this.txtbx_heure_debut = new System.Windows.Forms.TextBox();
-            this.txtbx_date_debut = new System.Windows.Forms.TextBox();
+            this.txtbx_date = new System.Windows.Forms.TextBox();
             this.txtbx_theme = new System.Windows.Forms.TextBox();
             this.combobox_hackathon = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
@@ -65,6 +65,7 @@ namespace HackatOrgan.Forms
             this.btn_annuler.TabIndex = 50;
             this.btn_annuler.Text = "Annuler";
             this.btn_annuler.UseVisualStyleBackColor = true;
+            this.btn_annuler.Click += new System.EventHandler(this.btn_annuler_Click);
             // 
             // btn_precedent
             // 
@@ -74,6 +75,7 @@ namespace HackatOrgan.Forms
             this.btn_precedent.TabIndex = 49;
             this.btn_precedent.Text = "Précedent";
             this.btn_precedent.UseVisualStyleBackColor = true;
+            this.btn_precedent.Click += new System.EventHandler(this.btn_precedent_Click);
             // 
             // lbl_nb_places
             // 
@@ -168,12 +170,12 @@ namespace HackatOrgan.Forms
             this.txtbx_heure_debut.Size = new System.Drawing.Size(233, 23);
             this.txtbx_heure_debut.TabIndex = 58;
             // 
-            // txtbx_date_debut
+            // txtbx_date
             // 
-            this.txtbx_date_debut.Location = new System.Drawing.Point(142, 189);
-            this.txtbx_date_debut.Name = "txtbx_date_debut";
-            this.txtbx_date_debut.Size = new System.Drawing.Size(233, 23);
-            this.txtbx_date_debut.TabIndex = 57;
+            this.txtbx_date.Location = new System.Drawing.Point(142, 189);
+            this.txtbx_date.Name = "txtbx_date";
+            this.txtbx_date.Size = new System.Drawing.Size(233, 23);
+            this.txtbx_date.TabIndex = 57;
             // 
             // txtbx_theme
             // 
@@ -208,7 +210,7 @@ namespace HackatOrgan.Forms
             this.Controls.Add(this.txtbx_date_limite);
             this.Controls.Add(this.txtbx_heure_fin);
             this.Controls.Add(this.txtbx_heure_debut);
-            this.Controls.Add(this.txtbx_date_debut);
+            this.Controls.Add(this.txtbx_date);
             this.Controls.Add(this.txtbx_theme);
             this.Controls.Add(this.btn_valider);
             this.Controls.Add(this.btn_annuler);
@@ -236,7 +238,7 @@ namespace HackatOrgan.Forms
         private System.Windows.Forms.TextBox txtbx_date_limite;
         private System.Windows.Forms.TextBox txtbx_heure_fin;
         private System.Windows.Forms.TextBox txtbx_heure_debut;
-        private System.Windows.Forms.TextBox txtbx_date_debut;
+        private System.Windows.Forms.TextBox txtbx_date;
         private System.Windows.Forms.TextBox txtbx_theme;
         private System.Windows.Forms.ComboBox combobox_hackathon;
     }

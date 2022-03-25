@@ -35,15 +35,30 @@ namespace HackatOrgan.Forms
 
         private void AjouteEvenement_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void combobox_hackathon_SelectedIndexChanged(object sender, EventArgs e)
-        {
             hackathonContext cnx = new hackathonContext();
             combobox_hackathon.DataSource = cnx.Hackathons.OrderBy(Ha => Ha.IdHackathon).ToList();
             combobox_hackathon.DisplayMember = "Theme";
             combobox_hackathon.ValueMember = "idHackathon";
+        }
+
+        private void combobox_hackathon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void btn_precedent_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_annuler_Click(object sender, EventArgs e)
+        {
+            txtbx_theme.Clear();
+            txtbx_date.Clear();
+            txtbx_heure_debut.Clear();
+            txtbx_heure_fin.Clear();
+            txtbx_date_limite.Clear();
+            txtbx_nb_places.Clear();
+
         }
     }
 }
