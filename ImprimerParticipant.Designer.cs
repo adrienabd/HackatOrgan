@@ -56,7 +56,7 @@ namespace HackatOrgan
             // 
             // btn_imprimer
             // 
-            this.btn_imprimer.BackColor = System.Drawing.Color.PaleGreen;
+            this.btn_imprimer.BackColor = System.Drawing.Color.Yellow;
             this.btn_imprimer.Location = new System.Drawing.Point(12, 127);
             this.btn_imprimer.Name = "btn_imprimer";
             this.btn_imprimer.Size = new System.Drawing.Size(255, 34);
@@ -67,7 +67,7 @@ namespace HackatOrgan
             // 
             // btn_precedent
             // 
-            this.btn_precedent.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btn_precedent.BackColor = System.Drawing.SystemColors.Highlight;
             this.btn_precedent.Location = new System.Drawing.Point(12, 12);
             this.btn_precedent.Name = "btn_precedent";
             this.btn_precedent.Size = new System.Drawing.Size(255, 34);

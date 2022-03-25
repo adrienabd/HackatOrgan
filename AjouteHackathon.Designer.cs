@@ -63,7 +63,7 @@ namespace HackatOrgan.Forms
             // 
             // btn_precedent
             // 
-            this.btn_precedent.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btn_precedent.BackColor = System.Drawing.SystemColors.Highlight;
             this.btn_precedent.Location = new System.Drawing.Point(12, 12);
             this.btn_precedent.Name = "btn_precedent";
             this.btn_precedent.Size = new System.Drawing.Size(149, 34);
@@ -74,7 +74,7 @@ namespace HackatOrgan.Forms
             // 
             // btn_annuler
             // 
-            this.btn_annuler.BackColor = System.Drawing.Color.Red;
+            this.btn_annuler.BackColor = System.Drawing.Color.Yellow;
             this.btn_annuler.Location = new System.Drawing.Point(19, 404);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Size = new System.Drawing.Size(147, 34);
@@ -85,7 +85,7 @@ namespace HackatOrgan.Forms
             // 
             // btn_valider
             // 
-            this.btn_valider.BackColor = System.Drawing.Color.LimeGreen;
+            this.btn_valider.BackColor = System.Drawing.Color.Yellow;
             this.btn_valider.Location = new System.Drawing.Point(592, 404);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Size = new System.Drawing.Size(149, 34);

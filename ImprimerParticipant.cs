@@ -32,7 +32,8 @@ namespace HackatOrgan
             unDocument.Add(titre);
 
             //Création d'un tableau
-            PdfPTable tableau = new PdfPTable(3);
+            PdfPTable tableau = new PdfPTable(3
+                );
             tableau.AddCell("Nom");
             tableau.AddCell("Prenom");
 

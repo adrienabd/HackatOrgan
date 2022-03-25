@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HackatOrgan.Models;
+using System;
+using System.Data;
 using System.Windows.Forms;
 
 
@@ -9,14 +11,6 @@ namespace HackatOrgan.Forms
         public Hackathons()
         {
             InitializeComponent();
-        }
-
-        private void grid_hackathon_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-        private void Hackathons_Load(object sender, EventArgs e)
-        {
         }
 
         private void btn_ajouter_hackathon_Click(object sender, EventArgs e)
@@ -41,6 +35,14 @@ namespace HackatOrgan.Forms
         }
 
         private void Hackathons_Load_1(object sender, EventArgs e)
+        {
+/*                hackathonContext cnx = new hackathonContext();
+
+            dataGridView1.DataSource = cnx.Evenements;*/
+           
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
