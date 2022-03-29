@@ -19,6 +19,7 @@ namespace HackatOrgan.Models
         public TimeSpan HeureFin { get; set; }
         public int IdHackathon { get; set; }
         public int IdTypeEvenement { get; set; }
+        public int NbPlaces { get; set; }
 
         public virtual Hackathon IdHackathonNavigation { get; set; }
         public virtual Typeevenement IdTypeEvenementNavigation { get; set; }

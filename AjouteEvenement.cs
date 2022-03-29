@@ -1,12 +1,7 @@
 ﻿using HackatOrgan.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HackatOrgan.Forms
@@ -68,6 +63,7 @@ namespace HackatOrgan.Forms
                     TE = 2;
                 }
             }
+
             if (btnradio_conference.Checked == false)
             {
                 if (btnradio_atelier.Checked == false)
@@ -84,6 +80,10 @@ namespace HackatOrgan.Forms
                     IdH = H.IdHackathon;
                 }
             }
+            int value = 0;
+            if (btnradio_atelier.Checked)
+                value = Decimal.ToInt32(num_nb_places.Value);
+
             //Création d'un nouvel Evenement
             Evenement newEvenement = new Evenement()
             {
@@ -93,6 +93,7 @@ namespace HackatOrgan.Forms
                 HeureFin = TimeSpan.Parse((Convert.ToString(datepck_fin.Value)).Substring(11)),
                 IdHackathon = IdH,
                 IdTypeEvenement = TE,
+                NbPlaces = value
             };
 
             //Ajout de l'objet au dataContext
@@ -109,6 +110,11 @@ namespace HackatOrgan.Forms
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

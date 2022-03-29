@@ -47,13 +47,16 @@ namespace HackatOrgan.Forms
             this.btnradio_atelier = new System.Windows.Forms.RadioButton();
             this.datepck_fin = new System.Windows.Forms.DateTimePicker();
             this.datepck_debut = new System.Windows.Forms.DateTimePicker();
+            this.num_nb_places = new System.Windows.Forms.NumericUpDown();
+            this.lbl_nbplaces = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_nb_places)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_valider
             // 
             this.btn_valider.BackColor = System.Drawing.Color.Yellow;
-            this.btn_valider.Location = new System.Drawing.Point(380, 261);
+            this.btn_valider.Location = new System.Drawing.Point(380, 257);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Size = new System.Drawing.Size(149, 34);
             this.btn_valider.TabIndex = 51;
@@ -64,7 +67,7 @@ namespace HackatOrgan.Forms
             // btn_annuler
             // 
             this.btn_annuler.BackColor = System.Drawing.Color.Yellow;
-            this.btn_annuler.Location = new System.Drawing.Point(15, 261);
+            this.btn_annuler.Location = new System.Drawing.Point(15, 257);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Size = new System.Drawing.Size(147, 34);
             this.btn_annuler.TabIndex = 50;
@@ -86,7 +89,7 @@ namespace HackatOrgan.Forms
             // lbl_heure_fin
             // 
             this.lbl_heure_fin.AutoSize = true;
-            this.lbl_heure_fin.Location = new System.Drawing.Point(307, 227);
+            this.lbl_heure_fin.Location = new System.Drawing.Point(307, 223);
             this.lbl_heure_fin.Name = "lbl_heure_fin";
             this.lbl_heure_fin.Size = new System.Drawing.Size(78, 15);
             this.lbl_heure_fin.TabIndex = 72;
@@ -95,7 +98,7 @@ namespace HackatOrgan.Forms
             // lbl_heure_debut
             // 
             this.lbl_heure_debut.AutoSize = true;
-            this.lbl_heure_debut.Location = new System.Drawing.Point(15, 227);
+            this.lbl_heure_debut.Location = new System.Drawing.Point(15, 223);
             this.lbl_heure_debut.Name = "lbl_heure_debut";
             this.lbl_heure_debut.Size = new System.Drawing.Size(95, 15);
             this.lbl_heure_debut.TabIndex = 71;
@@ -104,7 +107,7 @@ namespace HackatOrgan.Forms
             // lbl_date
             // 
             this.lbl_date.AutoSize = true;
-            this.lbl_date.Location = new System.Drawing.Point(15, 188);
+            this.lbl_date.Location = new System.Drawing.Point(15, 184);
             this.lbl_date.Name = "lbl_date";
             this.lbl_date.Size = new System.Drawing.Size(80, 15);
             this.lbl_date.TabIndex = 67;
@@ -157,7 +160,7 @@ namespace HackatOrgan.Forms
             // 
             // datepck_date
             // 
-            this.datepck_date.Location = new System.Drawing.Point(118, 182);
+            this.datepck_date.Location = new System.Drawing.Point(118, 178);
             this.datepck_date.Name = "datepck_date";
             this.datepck_date.Size = new System.Drawing.Size(173, 23);
             this.datepck_date.TabIndex = 78;
@@ -198,7 +201,7 @@ namespace HackatOrgan.Forms
             // datepck_fin
             // 
             this.datepck_fin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.datepck_fin.Location = new System.Drawing.Point(413, 219);
+            this.datepck_fin.Location = new System.Drawing.Point(413, 215);
             this.datepck_fin.Name = "datepck_fin";
             this.datepck_fin.Size = new System.Drawing.Size(116, 23);
             this.datepck_fin.TabIndex = 82;
@@ -206,16 +209,35 @@ namespace HackatOrgan.Forms
             // datepck_debut
             // 
             this.datepck_debut.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.datepck_debut.Location = new System.Drawing.Point(118, 221);
+            this.datepck_debut.Location = new System.Drawing.Point(118, 217);
             this.datepck_debut.Name = "datepck_debut";
             this.datepck_debut.Size = new System.Drawing.Size(173, 23);
             this.datepck_debut.TabIndex = 83;
+            // 
+            // num_nb_places
+            // 
+            this.num_nb_places.Location = new System.Drawing.Point(413, 178);
+            this.num_nb_places.Name = "num_nb_places";
+            this.num_nb_places.Size = new System.Drawing.Size(116, 23);
+            this.num_nb_places.TabIndex = 84;
+            // 
+            // lbl_nbplaces
+            // 
+            this.lbl_nbplaces.AutoSize = true;
+            this.lbl_nbplaces.Location = new System.Drawing.Point(316, 184);
+            this.lbl_nbplaces.Name = "lbl_nbplaces";
+            this.lbl_nbplaces.Size = new System.Drawing.Size(81, 15);
+            this.lbl_nbplaces.TabIndex = 85;
+            this.lbl_nbplaces.Text = "Nb de places :";
+            this.lbl_nbplaces.Click += new System.EventHandler(this.label1_Click);
             // 
             // AjouteEvenement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 307);
+            this.ClientSize = new System.Drawing.Size(547, 324);
+            this.Controls.Add(this.lbl_nbplaces);
+            this.Controls.Add(this.num_nb_places);
             this.Controls.Add(this.datepck_debut);
             this.Controls.Add(this.datepck_fin);
             this.Controls.Add(this.groupBox1);
@@ -237,6 +259,7 @@ namespace HackatOrgan.Forms
             this.Load += new System.EventHandler(this.AjouteEvenement_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_nb_places)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,5 +285,7 @@ namespace HackatOrgan.Forms
         private System.Windows.Forms.RadioButton btnradio_atelier;
         private System.Windows.Forms.DateTimePicker datepck_fin;
         private System.Windows.Forms.DateTimePicker datepck_debut;
+        private System.Windows.Forms.NumericUpDown num_nb_places;
+        private System.Windows.Forms.Label lbl_nbplaces;
     }
 }

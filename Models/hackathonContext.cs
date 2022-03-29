@@ -17,8 +17,12 @@ namespace HackatOrgan.Models
         {
         }
 
+        public virtual DbSet<Commentaire> Commentaires { get; set; }
         public virtual DbSet<Evenement> Evenements { get; set; }
+        public virtual DbSet<Favori> Favoris { get; set; }
         public virtual DbSet<Hackathon> Hackathons { get; set; }
+        public virtual DbSet<Intervenant> Intervenants { get; set; }
+        public virtual DbSet<Intervenantevenement> Intervenantevenements { get; set; }
         public virtual DbSet<Participant> Participants { get; set; }
         public virtual DbSet<Participantevenement> Participantevenements { get; set; }
         public virtual DbSet<Participation> Participations { get; set; }
@@ -28,13 +32,33 @@ namespace HackatOrgan.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning /*To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.*/
-                optionsBuilder.UseMySQL("server=127.0.0.7;port=3307;user=root;database=hackathon;sslmode=none;convert zero datetime=True");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseMySQL("server=127.0.0.1;port=3307;user=root;password=;database=hackathon;sslmode=none");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Commentaire>(entity =>
+            {
+                entity.HasKey(e => e.IdCommentaire)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("commentaire");
+
+                entity.HasIndex(e => e.IdHackathon, "Commentaire_ibfk_1");
+
+                entity.Property(e => e.IdCommentaire).HasColumnType("int(11)");
+
+                entity.Property(e => e.Date).HasColumnType("date");
+
+                entity.Property(e => e.IdHackathon).HasColumnType("int(11)");
+
+                entity.Property(e => e.Texte)
+                    .IsRequired()
+                    .HasMaxLength(1024);
+            });
+
             modelBuilder.Entity<Evenement>(entity =>
             {
                 entity.HasKey(e => e.IdEvenement)
@@ -44,7 +68,7 @@ namespace HackatOrgan.Models
 
                 entity.HasIndex(e => e.IdHackathon, "Evenement_ibfk_1");
 
-                entity.HasIndex(e => e.IdTypeEvenement, "IdTypeEvenement");
+                entity.HasIndex(e => e.IdTypeEvenement, "Evenement_ibfk_2");
 
                 entity.Property(e => e.IdEvenement).HasColumnType("int(30)");
 
@@ -53,6 +77,8 @@ namespace HackatOrgan.Models
                 entity.Property(e => e.IdHackathon).HasColumnType("int(30)");
 
                 entity.Property(e => e.IdTypeEvenement).HasColumnType("int(30)");
+
+                entity.Property(e => e.NbPlaces).HasColumnType("int(30)");
 
                 entity.Property(e => e.Theme)
                     .IsRequired()
@@ -69,6 +95,24 @@ namespace HackatOrgan.Models
                     .HasForeignKey(d => d.IdTypeEvenement)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("Evenement_ibfk_2");
+            });
+
+            modelBuilder.Entity<Favori>(entity =>
+            {
+                entity.HasKey(e => e.IdFavori)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("favori");
+
+                entity.HasIndex(e => e.IdHackathon, "Favori_ibfk_1");
+
+                entity.HasIndex(e => e.IdParticipant, "Favori_ibfk_2");
+
+                entity.Property(e => e.IdFavori).HasColumnType("int(11)");
+
+                entity.Property(e => e.IdHackathon).HasColumnType("int(11)");
+
+                entity.Property(e => e.IdParticipant).HasColumnType("int(11)");
             });
 
             modelBuilder.Entity<Hackathon>(entity =>
@@ -124,6 +168,44 @@ namespace HackatOrgan.Models
                     .HasDefaultValueSql("'NULL'");
             });
 
+            modelBuilder.Entity<Intervenant>(entity =>
+            {
+                entity.HasKey(e => e.IdIntervenant)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("intervenant");
+
+                entity.Property(e => e.IdIntervenant).HasColumnType("int(11)");
+
+                entity.Property(e => e.Mail).HasColumnType("int(11)");
+
+                entity.Property(e => e.Nom).HasColumnType("int(11)");
+
+                entity.Property(e => e.Prenom).HasColumnType("int(11)");
+
+                entity.Property(e => e.Telephone).HasColumnType("int(11)");
+            });
+
+            modelBuilder.Entity<Intervenantevenement>(entity =>
+            {
+                entity.HasKey(e => e.IdIe)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("intervenantevenement");
+
+                entity.HasIndex(e => e.IdIntervenant, "Intervenantevenement_ibfk_1");
+
+                entity.HasIndex(e => e.IdEvenement, "Intervenantevenement_ibfk_2");
+
+                entity.Property(e => e.IdIe)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("IdIE");
+
+                entity.Property(e => e.IdEvenement).HasColumnType("int(11)");
+
+                entity.Property(e => e.IdIntervenant).HasColumnType("int(11)");
+            });
+
             modelBuilder.Entity<Participant>(entity =>
             {
                 entity.HasKey(e => e.IdParticipant)
@@ -164,7 +246,7 @@ namespace HackatOrgan.Models
             {
                 entity.ToTable("participantevenement");
 
-                entity.HasIndex(e => e.IdEvenement, "IdEvenement");
+                entity.HasIndex(e => e.IdEvenement, "ParticipantEvenement_ibfk_1");
 
                 entity.Property(e => e.Id).HasColumnType("int(30)");
 
@@ -196,9 +278,9 @@ namespace HackatOrgan.Models
 
                 entity.ToTable("participation");
 
-                entity.HasIndex(e => e.IdParticipant, "IdParticipant");
-
                 entity.HasIndex(e => e.IdHackathon, "Participation_ibfk_1");
+
+                entity.HasIndex(e => e.IdParticipant, "Participation_ibfk_2");
 
                 entity.Property(e => e.IdParticipation).HasColumnType("int(30)");
 

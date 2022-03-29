@@ -21,21 +21,21 @@ namespace HackatOrgan
             hackathonContext cnx = new hackathonContext();
             //Création d'un document
             Document unDocument = new Document();
-            PdfWriter.GetInstance(unDocument, new FileStream("D:\\aabderrahmann\\Applis Hackathons\\Documents\\Participants." + comboBox_hackathon.SelectedValue + ".pdf", FileMode.Create));
+            PdfWriter.GetInstance(unDocument, new FileStream("D:\\aabderrahmann\\Applis Hackathons\\Documents\\Participants." + comboBox_hackathon.SelectedValue +".pdf", FileMode.Create));
             unDocument.Open();
 
             //Paragraphe centré avec une police de 14 et du gras
             iTextSharp.text.Font myFont = FontFactory.GetFont("Arial", 14, iTextSharp.text.Font.BOLD);
-            Paragraph titre = new Paragraph("Liste des Participants", myFont);
+            Paragraph titre = new Paragraph("Liste des Participants pour "+ comboBox_hackathon.SelectedValue, myFont);
             titre.Alignment = Element.ALIGN_CENTER;
             titre.SpacingAfter = 12;
             unDocument.Add(titre);
 
             //Création d'un tableau
-            PdfPTable tableau = new PdfPTable(3
-                );
+            PdfPTable tableau = new PdfPTable(3);
             tableau.AddCell("Nom");
             tableau.AddCell("Prenom");
+            tableau.AddCell("Date");
 
             //Remplissage avec la liste des clients
             foreach (Hackathon H in cnx.Hackathons.ToList())
@@ -53,6 +53,7 @@ namespace HackatOrgan
                                 {
                                     tableau.AddCell(P.Nom);
                                     tableau.AddCell(P.Prenom);
+                                    tableau.AddCell(Convert.ToString(Ption.DateInscription));
                                     
                                 }
                             }
