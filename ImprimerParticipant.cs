@@ -2,14 +2,9 @@
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HackatOrgan
@@ -25,21 +20,25 @@ namespace HackatOrgan
         {
             hackathonContext cnx = new hackathonContext();
             //Création d'un document
+            string name = Convert.ToString(comboBox_hackathon.SelectedValue);
             Document unDocument = new Document();
-            PdfWriter.GetInstance(unDocument, new FileStream("D:\\aabderrahmann\\Applis Hackathons\\Documents\\Participants."+ comboBox_hackathon.SelectedValue + ".pdf", FileMode.Create));
+            PdfWriter.GetInstance(unDocument, new FileStream("D:\\aabderrahmann\\Applis Hackathons\\Documents\\Participants." + name +".pdf", FileMode.Create));
             unDocument.Open();
 
             //Paragraphe centré avec une police de 14 et du gras
             iTextSharp.text.Font myFont = FontFactory.GetFont("Arial", 14, iTextSharp.text.Font.BOLD);
-            Paragraph titre = new Paragraph("Liste des Participants", myFont);
+            Paragraph titre = new Paragraph("Liste des Participants pour l'évenement :"+ name, myFont);
             titre.Alignment = Element.ALIGN_CENTER;
             titre.SpacingAfter = 12;
             unDocument.Add(titre);
 
             //Création d'un tableau
             PdfPTable tableau = new PdfPTable(3);
+            tableau.AddCell("Nom");
+            tableau.AddCell("Prenom");
+            tableau.AddCell("Date d'inscription");
 
-            //Remplissage avec la liste des clients
+            //Remplissage avec la liste des participants
             foreach (Hackathon H in cnx.Hackathons.ToList())
             {
                 object Hackat = comboBox_hackathon.SelectedValue;
@@ -55,16 +54,16 @@ namespace HackatOrgan
                                 {
                                     tableau.AddCell(P.Nom);
                                     tableau.AddCell(P.Prenom);
-                                    tableau.AddCell(Ption.DateInscription.ToString());
+                                    tableau.AddCell((Ption.DateInscription).ToString("dd/MM/yyyy"));
+                                    
                                 }
                             }
-                       }
+                        }
                     }
                 }
             }
 
             unDocument.Add(tableau);
-
             //Enregistrement du fichier
             unDocument.Close();
             MessageBox.Show("Document généré");
@@ -73,14 +72,9 @@ namespace HackatOrgan
         private void ImprimerParticipant_Load(object sender, EventArgs e)
         {
             hackathonContext cnx = new hackathonContext();
+            comboBox_hackathon.DataSource = cnx.Hackathons.OrderBy(Ha => Ha.IdHackathon).ToList();
             comboBox_hackathon.DisplayMember = "Theme";
             comboBox_hackathon.ValueMember = "Theme";
-            comboBox_hackathon.DataSource = cnx.Hackathons.OrderBy(Ha => Ha.IdHackathon).ToList();
-        }
-
-        private void comboBox_hackathon_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btn_precedent_Click(object sender, EventArgs e)
@@ -88,6 +82,9 @@ namespace HackatOrgan
             this.Close();
         }
 
+        private void comboBox_hackathon_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

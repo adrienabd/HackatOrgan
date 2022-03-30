@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace HackatOrgan.Models
 {
-    public partial class TypeEvenement
+    public partial class Typeevenement
     {
-        public TypeEvenement()
+        public Typeevenement()
         {
             Evenements = new HashSet<Evenement>();
         }

@@ -9,7 +9,7 @@ namespace HackatOrgan.Models
     {
         public Evenement()
         {
-            Participations = new HashSet<Participation>();
+            Participantevenements = new HashSet<Participantevenement>();
         }
 
         public int IdEvenement { get; set; }
@@ -19,9 +19,10 @@ namespace HackatOrgan.Models
         public TimeSpan HeureFin { get; set; }
         public int IdHackathon { get; set; }
         public int IdTypeEvenement { get; set; }
+        public int NbPlaces { get; set; }
 
         public virtual Hackathon IdHackathonNavigation { get; set; }
-        public virtual TypeEvenement IdTypeEvenementNavigation { get; set; }
-        public virtual ICollection<Participation> Participations { get; set; }
+        public virtual Typeevenement IdTypeEvenementNavigation { get; set; }
+        public virtual ICollection<Participantevenement> Participantevenements { get; set; }
     }
 }

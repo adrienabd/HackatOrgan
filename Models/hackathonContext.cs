@@ -17,12 +17,16 @@ namespace HackatOrgan.Models
         {
         }
 
+        public virtual DbSet<Commentaire> Commentaires { get; set; }
         public virtual DbSet<Evenement> Evenements { get; set; }
+        public virtual DbSet<Favori> Favoris { get; set; }
         public virtual DbSet<Hackathon> Hackathons { get; set; }
+        public virtual DbSet<Intervenant> Intervenants { get; set; }
+        public virtual DbSet<Intervenantevenement> Intervenantevenements { get; set; }
         public virtual DbSet<Participant> Participants { get; set; }
-        public virtual DbSet<ParticipantEvenement> ParticipantEvenements { get; set; }
+        public virtual DbSet<Participantevenement> Participantevenements { get; set; }
         public virtual DbSet<Participation> Participations { get; set; }
-        public virtual DbSet<TypeEvenement> TypeEvenements { get; set; }
+        public virtual DbSet<Typeevenement> Typeevenements { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -35,6 +39,26 @@ namespace HackatOrgan.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Commentaire>(entity =>
+            {
+                entity.HasKey(e => e.IdCommentaire)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("commentaire");
+
+                entity.HasIndex(e => e.IdHackathon, "Commentaire_ibfk_1");
+
+                entity.Property(e => e.IdCommentaire).HasColumnType("int(11)");
+
+                entity.Property(e => e.Date).HasColumnType("date");
+
+                entity.Property(e => e.IdHackathon).HasColumnType("int(11)");
+
+                entity.Property(e => e.Texte)
+                    .IsRequired()
+                    .HasMaxLength(1024);
+            });
+
             modelBuilder.Entity<Evenement>(entity =>
             {
                 entity.HasKey(e => e.IdEvenement)
@@ -42,46 +66,53 @@ namespace HackatOrgan.Models
 
                 entity.ToTable("evenement");
 
-                entity.HasIndex(e => e.IdHackathon, "id_hackathon");
+                entity.HasIndex(e => e.IdHackathon, "Evenement_ibfk_1");
 
-                entity.HasIndex(e => e.IdTypeEvenement, "id_type_evenement");
+                entity.HasIndex(e => e.IdTypeEvenement, "Evenement_ibfk_2");
 
-                entity.Property(e => e.IdEvenement)
-                    .HasColumnType("int(30)")
-                    .HasColumnName("id_evenement");
+                entity.Property(e => e.IdEvenement).HasColumnType("int(30)");
 
-                entity.Property(e => e.Date)
-                    .HasColumnType("date")
-                    .HasColumnName("date");
+                entity.Property(e => e.Date).HasColumnType("date");
 
-                entity.Property(e => e.HeureDebut).HasColumnName("heure_debut");
+                entity.Property(e => e.IdHackathon).HasColumnType("int(30)");
 
-                entity.Property(e => e.HeureFin).HasColumnName("heure_fin");
+                entity.Property(e => e.IdTypeEvenement).HasColumnType("int(30)");
 
-                entity.Property(e => e.IdHackathon)
-                    .HasColumnType("int(30)")
-                    .HasColumnName("id_hackathon");
-
-                entity.Property(e => e.IdTypeEvenement)
-                    .HasColumnType("int(30)")
-                    .HasColumnName("id_type_evenement");
+                entity.Property(e => e.NbPlaces).HasColumnType("int(30)");
 
                 entity.Property(e => e.Theme)
                     .IsRequired()
-                    .HasMaxLength(256)
-                    .HasColumnName("theme");
+                    .HasMaxLength(256);
 
                 entity.HasOne(d => d.IdHackathonNavigation)
                     .WithMany(p => p.Evenements)
                     .HasForeignKey(d => d.IdHackathon)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("evenement_ibfk_1");
+                    .HasConstraintName("Evenement_ibfk_1");
 
                 entity.HasOne(d => d.IdTypeEvenementNavigation)
                     .WithMany(p => p.Evenements)
                     .HasForeignKey(d => d.IdTypeEvenement)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("evenement_ibfk_2");
+                    .HasConstraintName("Evenement_ibfk_2");
+            });
+
+            modelBuilder.Entity<Favori>(entity =>
+            {
+                entity.HasKey(e => e.IdFavori)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("favori");
+
+                entity.HasIndex(e => e.IdHackathon, "Favori_ibfk_1");
+
+                entity.HasIndex(e => e.IdParticipant, "Favori_ibfk_2");
+
+                entity.Property(e => e.IdFavori).HasColumnType("int(11)");
+
+                entity.Property(e => e.IdHackathon).HasColumnType("int(11)");
+
+                entity.Property(e => e.IdParticipant).HasColumnType("int(11)");
             });
 
             modelBuilder.Entity<Hackathon>(entity =>
@@ -91,67 +122,88 @@ namespace HackatOrgan.Models
 
                 entity.ToTable("hackathon");
 
-                entity.Property(e => e.IdHackathon)
-                    .HasColumnType("int(30)")
-                    .HasColumnName("id_hackathon");
+                entity.Property(e => e.IdHackathon).HasColumnType("int(30)");
 
                 entity.Property(e => e.CodePostal)
                     .HasMaxLength(5)
-                    .HasColumnName("code_postal")
                     .HasDefaultValueSql("'NULL'")
                     .IsFixedLength(true);
 
-                entity.Property(e => e.DateDebut)
-                    .HasColumnType("date")
-                    .HasColumnName("date_debut");
+                entity.Property(e => e.DateDebut).HasColumnType("date");
 
                 entity.Property(e => e.DateFin)
                     .HasColumnType("date")
-                    .HasColumnName("date_fin")
                     .HasDefaultValueSql("'NULL'");
 
                 entity.Property(e => e.DateLimite)
                     .HasColumnType("date")
-                    .HasColumnName("date_limite")
                     .HasDefaultValueSql("'NULL'");
 
-                entity.Property(e => e.HeureDebut)
-                    .HasColumnName("heure_debut")
-                    .HasDefaultValueSql("'NULL'");
+                entity.Property(e => e.HeureDebut).HasDefaultValueSql("'NULL'");
 
-                entity.Property(e => e.HeureFin)
-                    .HasColumnName("heure_fin")
-                    .HasDefaultValueSql("'NULL'");
+                entity.Property(e => e.HeureFin).HasDefaultValueSql("'NULL'");
 
                 entity.Property(e => e.Image)
                     .HasMaxLength(256)
-                    .HasColumnName("image")
                     .HasDefaultValueSql("'NULL'");
 
                 entity.Property(e => e.Lieu)
                     .HasMaxLength(255)
-                    .HasColumnName("lieu")
                     .HasDefaultValueSql("'NULL'");
 
                 entity.Property(e => e.NbPlaces)
                     .HasColumnType("int(11)")
-                    .HasColumnName("nb_places")
                     .HasDefaultValueSql("'NULL'");
 
                 entity.Property(e => e.Rue)
                     .HasMaxLength(255)
-                    .HasColumnName("rue")
                     .HasDefaultValueSql("'NULL'");
 
                 entity.Property(e => e.Theme)
                     .IsRequired()
-                    .HasMaxLength(255)
-                    .HasColumnName("theme");
+                    .HasMaxLength(255);
 
                 entity.Property(e => e.Ville)
                     .HasMaxLength(255)
-                    .HasColumnName("ville")
                     .HasDefaultValueSql("'NULL'");
+            });
+
+            modelBuilder.Entity<Intervenant>(entity =>
+            {
+                entity.HasKey(e => e.IdIntervenant)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("intervenant");
+
+                entity.Property(e => e.IdIntervenant).HasColumnType("int(11)");
+
+                entity.Property(e => e.Mail).HasColumnType("int(11)");
+
+                entity.Property(e => e.Nom).HasColumnType("int(11)");
+
+                entity.Property(e => e.Prenom).HasColumnType("int(11)");
+
+                entity.Property(e => e.Telephone).HasColumnType("int(11)");
+            });
+
+            modelBuilder.Entity<Intervenantevenement>(entity =>
+            {
+                entity.HasKey(e => e.IdIe)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("intervenantevenement");
+
+                entity.HasIndex(e => e.IdIntervenant, "Intervenantevenement_ibfk_1");
+
+                entity.HasIndex(e => e.IdEvenement, "Intervenantevenement_ibfk_2");
+
+                entity.Property(e => e.IdIe)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("IdIE");
+
+                entity.Property(e => e.IdEvenement).HasColumnType("int(11)");
+
+                entity.Property(e => e.IdIntervenant).HasColumnType("int(11)");
             });
 
             modelBuilder.Entity<Participant>(entity =>
@@ -161,71 +213,62 @@ namespace HackatOrgan.Models
 
                 entity.ToTable("participant");
 
-                entity.Property(e => e.IdParticipant)
-                    .HasColumnType("int(30)")
-                    .HasColumnName("id_participant");
+                entity.Property(e => e.IdParticipant).HasColumnType("int(30)");
 
-                entity.Property(e => e.DateDeNaissance)
-                    .HasColumnType("date")
-                    .HasColumnName("date_de_naissance");
+                entity.Property(e => e.DateDeNaissance).HasColumnType("date");
 
                 entity.Property(e => e.LienPortfolio)
                     .HasMaxLength(256)
-                    .HasColumnName("lien_portfolio")
                     .HasDefaultValueSql("'NULL'");
 
                 entity.Property(e => e.Mail)
                     .IsRequired()
-                    .HasMaxLength(100)
-                    .HasColumnName("mail");
+                    .HasMaxLength(100);
 
                 entity.Property(e => e.Mdp)
                     .IsRequired()
-                    .HasMaxLength(256)
-                    .HasColumnName("mdp");
+                    .HasMaxLength(256);
 
                 entity.Property(e => e.Nom)
                     .IsRequired()
-                    .HasMaxLength(30)
-                    .HasColumnName("nom");
+                    .HasMaxLength(30);
 
                 entity.Property(e => e.Prenom)
                     .IsRequired()
-                    .HasMaxLength(30)
-                    .HasColumnName("prenom");
+                    .HasMaxLength(30);
 
-                entity.Property(e => e.Téléphone)
+                entity.Property(e => e.Telephone)
                     .HasColumnType("int(10)")
-                    .HasColumnName("téléphone")
                     .HasDefaultValueSql("'NULL'");
             });
 
-            modelBuilder.Entity<ParticipantEvenement>(entity =>
+            modelBuilder.Entity<Participantevenement>(entity =>
             {
-                entity.ToTable("participant_evenement");
+                entity.ToTable("participantevenement");
 
-                entity.Property(e => e.ParticipantEvenementId)
-                    .HasColumnType("int(30)")
-                    .HasColumnName("participant_evenement_id");
+                entity.HasIndex(e => e.IdEvenement, "ParticipantEvenement_ibfk_1");
 
-                entity.Property(e => e.ParticipantEvenementEvenementId)
-                    .HasColumnType("int(30)")
-                    .HasColumnName("participant_evenement_evenement_id");
+                entity.Property(e => e.Id).HasColumnType("int(30)");
 
-                entity.Property(e => e.ParticipantEvenementMail)
+                entity.Property(e => e.IdEvenement).HasColumnType("int(30)");
+
+                entity.Property(e => e.Mail)
                     .IsRequired()
-                    .HasMaxLength(255)
-                    .HasColumnName("participant_evenement_mail");
+                    .HasMaxLength(255);
 
-                entity.Property(e => e.ParticipantEvenementNom)
+                entity.Property(e => e.Nom)
                     .IsRequired()
-                    .HasMaxLength(128)
-                    .HasColumnName("participant_evenement_nom");
+                    .HasMaxLength(128);
 
-                entity.Property(e => e.ParticipantEvenementPrenom)
+                entity.Property(e => e.Prenom)
                     .IsRequired()
-                    .HasMaxLength(128)
-                    .HasColumnName("participant_evenement_prenom");
+                    .HasMaxLength(128);
+
+                entity.HasOne(d => d.IdEvenementNavigation)
+                    .WithMany(p => p.Participantevenements)
+                    .HasForeignKey(d => d.IdEvenement)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("ParticipantEvenement_ibfk_1");
             });
 
             modelBuilder.Entity<Participation>(entity =>
@@ -235,64 +278,45 @@ namespace HackatOrgan.Models
 
                 entity.ToTable("participation");
 
-                entity.HasIndex(e => e.IdHackathon, "id_hackathon");
+                entity.HasIndex(e => e.IdHackathon, "Participation_ibfk_1");
 
-                entity.HasIndex(e => e.IdParticipant, "id_participant");
+                entity.HasIndex(e => e.IdParticipant, "Participation_ibfk_2");
 
-                entity.Property(e => e.IdParticipation)
-                    .HasColumnType("int(30)")
-                    .HasColumnName("id_participation");
+                entity.Property(e => e.IdParticipation).HasColumnType("int(30)");
 
-                entity.Property(e => e.DateInscription)
-                    .HasColumnType("date")
-                    .HasColumnName("date_inscription");
-
-                entity.Property(e => e.IdEvenement)
-                    .HasColumnType("int(30)")
-                    .HasColumnName("id_evenement")
-                    .HasDefaultValueSql("'NULL'");
+                entity.Property(e => e.DateInscription).HasColumnType("date");
 
                 entity.Property(e => e.IdHackathon)
                     .HasColumnType("int(30)")
-                    .HasColumnName("id_hackathon")
                     .HasDefaultValueSql("'NULL'");
 
-                entity.Property(e => e.IdParticipant)
-                    .HasColumnType("int(30)")
-                    .HasColumnName("id_participant");
-
-                entity.HasOne(d => d.IdEvenementNavigation)
-                    .WithMany(p => p.Participations)
-                    .HasForeignKey(d => d.IdEvenement)
-                    .HasConstraintName("participation_ibfk_3");
+                entity.Property(e => e.IdParticipant).HasColumnType("int(30)");
 
                 entity.HasOne(d => d.IdHackathonNavigation)
                     .WithMany(p => p.Participations)
                     .HasForeignKey(d => d.IdHackathon)
-                    .HasConstraintName("participation_ibfk_1");
+                    .HasConstraintName("Participation_ibfk_1");
 
                 entity.HasOne(d => d.IdParticipantNavigation)
                     .WithMany(p => p.Participations)
                     .HasForeignKey(d => d.IdParticipant)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("participation_ibfk_2");
+                    .HasConstraintName("Participation_ibfk_2");
             });
 
-            modelBuilder.Entity<TypeEvenement>(entity =>
+            modelBuilder.Entity<Typeevenement>(entity =>
             {
                 entity.HasKey(e => e.IdType)
                     .HasName("PRIMARY");
 
-                entity.ToTable("type_evenement");
+                entity.ToTable("typeevenement");
 
-                entity.Property(e => e.IdType)
-                    .HasColumnType("int(30)")
-                    .HasColumnName("id_type");
+                entity.Property(e => e.IdType).HasColumnType("int(30)");
 
                 entity.Property(e => e.NomType)
                     .IsRequired()
                     .HasMaxLength(256)
-                    .HasColumnName("nom type");
+                    .HasColumnName("Nom type");
             });
 
             OnModelCreatingPartial(modelBuilder);

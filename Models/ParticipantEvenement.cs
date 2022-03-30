@@ -5,12 +5,14 @@ using System.Collections.Generic;
 
 namespace HackatOrgan.Models
 {
-    public partial class ParticipantEvenement
+    public partial class Participantevenement
     {
-        public int ParticipantEvenementId { get; set; }
-        public string ParticipantEvenementNom { get; set; }
-        public string ParticipantEvenementPrenom { get; set; }
-        public string ParticipantEvenementMail { get; set; }
-        public int ParticipantEvenementEvenementId { get; set; }
+        public int Id { get; set; }
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
+        public string Mail { get; set; }
+        public int IdEvenement { get; set; }
+
+        public virtual Evenement IdEvenementNavigation { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace HackatOrgan.Models
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public string Mail { get; set; }
-        public int? Téléphone { get; set; }
+        public int? Telephone { get; set; }
         public DateTime DateDeNaissance { get; set; }
         public string LienPortfolio { get; set; }
         public string Mdp { get; set; }

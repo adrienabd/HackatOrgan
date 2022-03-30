@@ -1,12 +1,7 @@
 ﻿using HackatOrgan.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HackatOrgan.Forms
@@ -17,12 +12,6 @@ namespace HackatOrgan.Forms
         {
             InitializeComponent();
         }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void lbl_date_debut_Click(object sender, EventArgs e)
         {
 
@@ -39,6 +28,8 @@ namespace HackatOrgan.Forms
             combobox_hackathon.DataSource = cnx.Hackathons.OrderBy(Ha => Ha.IdHackathon).ToList();
             combobox_hackathon.DisplayMember = "Theme";
             combobox_hackathon.ValueMember = "idHackathon";
+            lbl_nb_places.Enabled = false;
+            num_places.Enabled = false;
         }
 
         private void combobox_hackathon_SelectedIndexChanged(object sender, EventArgs e)
@@ -53,12 +44,79 @@ namespace HackatOrgan.Forms
         private void btn_annuler_Click(object sender, EventArgs e)
         {
             txtbx_theme.Clear();
-            txtbx_date.Clear();
             txtbx_heure_debut.Clear();
             txtbx_heure_fin.Clear();
-            txtbx_date_limite.Clear();
-            txtbx_nb_places.Clear();
+        }
+        private void btn_valider_Click(object sender, EventArgs e)
+        {
+            int places = 0;
+            hackathonContext cnx = new hackathonContext();
+            int TE = 0;
+            if (btnradio_conference.Checked == true)
+            {
+                if (btnradio_atelier.Checked == false)
+                {
+                    TE = 1;
+                }
+            }
+            if (btnradio_conference.Checked == false)
+            {
+                if (btnradio_atelier.Checked == true)
+                {
+                    TE = 2;
+                    places = Decimal.ToInt32(num_places.Value);
+                }
+            }
+            if (btnradio_conference.Checked == false)
+            {
+                if (btnradio_atelier.Checked == false)
+                {
+                    MessageBox.Show("Veuillez choisir un type d'évenement"); ;
+                }
+            }
+            //Récupère l'Id de l'Hackathon selectionné
+            int IdH = 0;
+            foreach (Hackathon H in cnx.Hackathons.ToList())
+            {
+                if (H.Theme == combobox_hackathon.Text)
+                {
+                    IdH = H.IdHackathon;
+                }
+            }
+            //Création d'un nouvel Evenement
+            Evenement newEvenement = new Evenement()
+            {
+                Theme = txtbx_theme.Text,
+                Date = datepck_date.Value,
+                HeureDebut = TimeSpan.Parse((Convert.ToString(datepck_debut.Value)).Substring(11)),
+                HeureFin = TimeSpan.Parse((Convert.ToString(datepck_fin.Value)).Substring(11)),
+                IdHackathon = IdH,
+                IdTypeEvenement = TE,
+                NbPlaces = places,
+            };
 
+            //Ajout de l'objet au dataContext
+            cnx.Evenements.Add(newEvenement);
+
+            //Enregistrement dans la BD
+            cnx.SaveChanges();
+            MessageBox.Show("Enregistrement Effectué");
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            lbl_nb_places.Enabled = true;
+            num_places.Enabled = true;
+        }
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnradio_conference_CheckedChanged(object sender, EventArgs e)
+        {
+            lbl_nb_places.Enabled = false;
+            num_places.Enabled = false;
         }
     }
 }
