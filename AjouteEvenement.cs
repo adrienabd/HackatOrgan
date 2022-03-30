@@ -28,6 +28,8 @@ namespace HackatOrgan.Forms
             combobox_hackathon.DataSource = cnx.Hackathons.OrderBy(Ha => Ha.IdHackathon).ToList();
             combobox_hackathon.DisplayMember = "Theme";
             combobox_hackathon.ValueMember = "idHackathon";
+            lbl_nb_places.Enabled = false;
+            num_places.Enabled = false;
         }
 
         private void combobox_hackathon_SelectedIndexChanged(object sender, EventArgs e)
@@ -47,6 +49,7 @@ namespace HackatOrgan.Forms
         }
         private void btn_valider_Click(object sender, EventArgs e)
         {
+            int places = 0;
             hackathonContext cnx = new hackathonContext();
             int TE = 0;
             if (btnradio_conference.Checked == true)
@@ -61,9 +64,9 @@ namespace HackatOrgan.Forms
                 if (btnradio_atelier.Checked == true)
                 {
                     TE = 2;
+                    places = Decimal.ToInt32(num_places.Value);
                 }
             }
-
             if (btnradio_conference.Checked == false)
             {
                 if (btnradio_atelier.Checked == false)
@@ -80,10 +83,6 @@ namespace HackatOrgan.Forms
                     IdH = H.IdHackathon;
                 }
             }
-            int value = 0;
-            if (btnradio_atelier.Checked)
-                value = Decimal.ToInt32(num_nb_places.Value);
-
             //Création d'un nouvel Evenement
             Evenement newEvenement = new Evenement()
             {
@@ -93,7 +92,7 @@ namespace HackatOrgan.Forms
                 HeureFin = TimeSpan.Parse((Convert.ToString(datepck_fin.Value)).Substring(11)),
                 IdHackathon = IdH,
                 IdTypeEvenement = TE,
-                NbPlaces = value
+                NbPlaces = places,
             };
 
             //Ajout de l'objet au dataContext
@@ -104,19 +103,20 @@ namespace HackatOrgan.Forms
             MessageBox.Show("Enregistrement Effectué");
         }
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
+            lbl_nb_places.Enabled = true;
+            num_places.Enabled = true;
+        }
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnradio_conference_CheckedChanged(object sender, EventArgs e)
         {
-
+            lbl_nb_places.Enabled = false;
+            num_places.Enabled = false;
         }
     }
 }
