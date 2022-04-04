@@ -42,9 +42,11 @@ namespace HackatOrgan.Forms
            
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btn_tableau_Click(object sender, EventArgs e)
         {
+            TableauDeBord tableau = new TableauDeBord();
 
+            tableau.Show();
         }
     }
 }

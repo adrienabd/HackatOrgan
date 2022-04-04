@@ -33,8 +33,7 @@ namespace HackatOrgan.Forms
             this.btn_ajouter_hackathon = new System.Windows.Forms.Button();
             this.btn_imprimer = new System.Windows.Forms.Button();
             this.btn_ajout_evenement = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btn_tableau = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_ajouter_hackathon
@@ -61,8 +60,8 @@ namespace HackatOrgan.Forms
             // 
             // btn_ajout_evenement
             // 
-            this.btn_ajout_evenement.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btn_ajout_evenement.Location = new System.Drawing.Point(700, 12);
+            this.btn_ajout_evenement.BackColor = System.Drawing.Color.Yellow;
+            this.btn_ajout_evenement.Location = new System.Drawing.Point(348, 88);
             this.btn_ajout_evenement.Name = "btn_ajout_evenement";
             this.btn_ajout_evenement.Size = new System.Drawing.Size(224, 37);
             this.btn_ajout_evenement.TabIndex = 6;
@@ -70,23 +69,24 @@ namespace HackatOrgan.Forms
             this.btn_ajout_evenement.UseVisualStyleBackColor = false;
             this.btn_ajout_evenement.Click += new System.EventHandler(this.btn_ajout_evenement_Click);
             // 
-            // dataGridView1
+            // btn_tableau
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 55);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(912, 353);
-            this.dataGridView1.TabIndex = 7;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.btn_tableau.BackColor = System.Drawing.Color.Yellow;
+            this.btn_tableau.Location = new System.Drawing.Point(12, 88);
+            this.btn_tableau.Name = "btn_tableau";
+            this.btn_tableau.Size = new System.Drawing.Size(224, 37);
+            this.btn_tableau.TabIndex = 7;
+            this.btn_tableau.Text = "Tableau de Bord";
+            this.btn_tableau.UseVisualStyleBackColor = false;
+            this.btn_tableau.Click += new System.EventHandler(this.btn_tableau_Click);
             // 
             // Hackathons
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(936, 420);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(603, 139);
+            this.Controls.Add(this.btn_tableau);
             this.Controls.Add(this.btn_ajout_evenement);
             this.Controls.Add(this.btn_imprimer);
             this.Controls.Add(this.btn_ajouter_hackathon);
@@ -94,7 +94,6 @@ namespace HackatOrgan.Forms
             this.Name = "Hackathons";
             this.Text = "Hackathons";
             this.Load += new System.EventHandler(this.Hackathons_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -104,6 +103,6 @@ namespace HackatOrgan.Forms
         private System.Windows.Forms.Button btn_ajouter_hackathon;
         private System.Windows.Forms.Button btn_imprimer;
         private System.Windows.Forms.Button btn_ajout_evenement;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btn_tableau;
     }
 }
