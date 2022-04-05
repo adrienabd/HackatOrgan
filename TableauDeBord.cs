@@ -5,8 +5,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HackatOrgan
@@ -34,6 +32,8 @@ namespace HackatOrgan
             cbx_Evenement.DisplayMember = "Theme";
             cbx_Evenement.ValueMember = "idEvenement";
             pictureBox2.Load(Hackath.Image);
+
+            lbl_lieu.Text = Hackath.Lieu;
         }
         private void cbx_Evenement_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -83,6 +83,11 @@ namespace HackatOrgan
         }
 
         private void lbl_note_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_lieu_Click(object sender, EventArgs e)
         {
 
         }

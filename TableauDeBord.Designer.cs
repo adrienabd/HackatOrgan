@@ -46,6 +46,8 @@ namespace HackatOrgan
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_note = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.lbl_lieu = new System.Windows.Forms.Label();
+            this.lbl_lieux = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,7 +100,7 @@ namespace HackatOrgan
             // label_date
             // 
             this.label_date.AutoSize = true;
-            this.label_date.Location = new System.Drawing.Point(45, 111);
+            this.label_date.Location = new System.Drawing.Point(46, 138);
             this.label_date.Name = "label_date";
             this.label_date.Size = new System.Drawing.Size(37, 15);
             this.label_date.TabIndex = 7;
@@ -107,7 +109,7 @@ namespace HackatOrgan
             // lbl_date
             // 
             this.lbl_date.AutoSize = true;
-            this.lbl_date.Location = new System.Drawing.Point(214, 111);
+            this.lbl_date.Location = new System.Drawing.Point(215, 138);
             this.lbl_date.Name = "lbl_date";
             this.lbl_date.Size = new System.Drawing.Size(87, 15);
             this.lbl_date.TabIndex = 9;
@@ -116,7 +118,7 @@ namespace HackatOrgan
             // lbl_heure_fin
             // 
             this.lbl_heure_fin.AutoSize = true;
-            this.lbl_heure_fin.Location = new System.Drawing.Point(214, 169);
+            this.lbl_heure_fin.Location = new System.Drawing.Point(215, 196);
             this.lbl_heure_fin.Name = "lbl_heure_fin";
             this.lbl_heure_fin.Size = new System.Drawing.Size(87, 15);
             this.lbl_heure_fin.TabIndex = 13;
@@ -125,7 +127,7 @@ namespace HackatOrgan
             // lbl_heure_debut
             // 
             this.lbl_heure_debut.AutoSize = true;
-            this.lbl_heure_debut.Location = new System.Drawing.Point(214, 140);
+            this.lbl_heure_debut.Location = new System.Drawing.Point(215, 167);
             this.lbl_heure_debut.Name = "lbl_heure_debut";
             this.lbl_heure_debut.Size = new System.Drawing.Size(87, 15);
             this.lbl_heure_debut.TabIndex = 12;
@@ -134,7 +136,7 @@ namespace HackatOrgan
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(45, 169);
+            this.label9.Location = new System.Drawing.Point(46, 196);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(78, 15);
             this.label9.TabIndex = 11;
@@ -143,7 +145,7 @@ namespace HackatOrgan
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(45, 140);
+            this.label10.Location = new System.Drawing.Point(46, 167);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(95, 15);
             this.label10.TabIndex = 10;
@@ -152,7 +154,7 @@ namespace HackatOrgan
             // lbl_nb_place
             // 
             this.lbl_nb_place.AutoSize = true;
-            this.lbl_nb_place.Location = new System.Drawing.Point(214, 196);
+            this.lbl_nb_place.Location = new System.Drawing.Point(215, 223);
             this.lbl_nb_place.Name = "lbl_nb_place";
             this.lbl_nb_place.Size = new System.Drawing.Size(87, 15);
             this.lbl_nb_place.TabIndex = 16;
@@ -161,7 +163,7 @@ namespace HackatOrgan
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(45, 196);
+            this.label14.Location = new System.Drawing.Point(46, 223);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(109, 15);
             this.label14.TabIndex = 14;
@@ -170,7 +172,7 @@ namespace HackatOrgan
             // lbl_inscrit
             // 
             this.lbl_inscrit.AutoSize = true;
-            this.lbl_inscrit.Location = new System.Drawing.Point(214, 223);
+            this.lbl_inscrit.Location = new System.Drawing.Point(215, 250);
             this.lbl_inscrit.Name = "lbl_inscrit";
             this.lbl_inscrit.Size = new System.Drawing.Size(87, 15);
             this.lbl_inscrit.TabIndex = 18;
@@ -180,7 +182,7 @@ namespace HackatOrgan
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(45, 223);
+            this.label4.Location = new System.Drawing.Point(46, 250);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 15);
             this.label4.TabIndex = 17;
@@ -190,7 +192,7 @@ namespace HackatOrgan
             // 
             this.lbl_note.AutoSize = true;
             this.lbl_note.Font = new System.Drawing.Font("Segoe UI Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_note.Location = new System.Drawing.Point(214, 238);
+            this.lbl_note.Location = new System.Drawing.Point(557, 240);
             this.lbl_note.Name = "lbl_note";
             this.lbl_note.Size = new System.Drawing.Size(140, 28);
             this.lbl_note.TabIndex = 19;
@@ -200,17 +202,38 @@ namespace HackatOrgan
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(45, 248);
+            this.label5.Location = new System.Drawing.Point(388, 250);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 15);
             this.label5.TabIndex = 20;
             this.label5.Text = "Note :";
             // 
+            // lbl_lieu
+            // 
+            this.lbl_lieu.AutoSize = true;
+            this.lbl_lieu.Location = new System.Drawing.Point(215, 110);
+            this.lbl_lieu.Name = "lbl_lieu";
+            this.lbl_lieu.Size = new System.Drawing.Size(87, 15);
+            this.lbl_lieu.TabIndex = 22;
+            this.lbl_lieu.Text = "----------------";
+            this.lbl_lieu.Click += new System.EventHandler(this.lbl_lieu_Click);
+            // 
+            // lbl_lieux
+            // 
+            this.lbl_lieux.AutoSize = true;
+            this.lbl_lieux.Location = new System.Drawing.Point(46, 110);
+            this.lbl_lieux.Name = "lbl_lieux";
+            this.lbl_lieux.Size = new System.Drawing.Size(35, 15);
+            this.lbl_lieux.TabIndex = 21;
+            this.lbl_lieux.Text = "Lieu :";
+            // 
             // TableauDeBord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 285);
+            this.ClientSize = new System.Drawing.Size(709, 319);
+            this.Controls.Add(this.lbl_lieu);
+            this.Controls.Add(this.lbl_lieux);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lbl_note);
             this.Controls.Add(this.lbl_inscrit);
@@ -256,5 +279,7 @@ namespace HackatOrgan
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbl_note;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbl_lieu;
+        private System.Windows.Forms.Label lbl_lieux;
     }
 }
