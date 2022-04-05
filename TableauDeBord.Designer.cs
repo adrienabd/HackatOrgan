@@ -48,6 +48,7 @@ namespace HackatOrgan
             this.label5 = new System.Windows.Forms.Label();
             this.lbl_lieu = new System.Windows.Forms.Label();
             this.lbl_lieux = new System.Windows.Forms.Label();
+            this.btn_mail = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -227,11 +228,22 @@ namespace HackatOrgan
             this.lbl_lieux.TabIndex = 21;
             this.lbl_lieux.Text = "Lieu :";
             // 
+            // btn_mail
+            // 
+            this.btn_mail.Location = new System.Drawing.Point(45, 317);
+            this.btn_mail.Name = "btn_mail";
+            this.btn_mail.Size = new System.Drawing.Size(329, 46);
+            this.btn_mail.TabIndex = 23;
+            this.btn_mail.Text = "Envoyer un mail de rappel aux participants";
+            this.btn_mail.UseVisualStyleBackColor = true;
+            this.btn_mail.Click += new System.EventHandler(this.btn_mail_Click);
+            // 
             // TableauDeBord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 319);
+            this.ClientSize = new System.Drawing.Size(709, 388);
+            this.Controls.Add(this.btn_mail);
             this.Controls.Add(this.lbl_lieu);
             this.Controls.Add(this.lbl_lieux);
             this.Controls.Add(this.label5);
@@ -281,5 +293,6 @@ namespace HackatOrgan
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbl_lieu;
         private System.Windows.Forms.Label lbl_lieux;
+        private System.Windows.Forms.Button btn_mail;
     }
 }

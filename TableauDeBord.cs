@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Windows.Forms;
 
 namespace HackatOrgan
@@ -71,6 +73,52 @@ namespace HackatOrgan
             else if (note <= 100)
                 {lbl_note.Text = "★★★★★";}
         }
+        private void btn_mail_Click(object sender, EventArgs e)
+        {
+            hackathonContext cnx = new hackathonContext();
+            SmtpClient client = new SmtpClient()
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential()
+                {
+                    UserName = "noreply.hackatOrga@gmail.com",
+                    Password = "NAJP@ssw0rd"
+                }
+            };
+            foreach (Participantevenement Pe in cnx.Participantevenements.ToList())
+            {
+                Evenement Evene = (Evenement)cbx_Evenement.SelectedItem;
+                object Evenen = cbx_Evenement.SelectedValue;
+                if (Pe.IdEvenement.Equals(Evenen))
+                {
+                    MailAddress FromEmail = new MailAddress("noreply.hackatOrga@gmail.com");
+                    MailAddress ToEmail = new MailAddress("noreply.hackatOrga@gmail.com");
+                    MailMessage Message = new MailMessage()
+                    {
+                        From = FromEmail,
+                        Subject = "Rappel Evenement : "+ Evene.Theme,
+                        Body = "Salut "+Pe.Nom + " " + Pe.Prenom +" !"+
+                        " N'oubliez pas que vous avez l'évenement " + Evene.Theme + " le " +Evene.Date + " De " + Evene.HeureDebut + " à " + Evene.HeureFin +
+                        " Cordialement, l'équipe d'Hackat'Orga! ",
+                    };
+                    Message.To.Add(ToEmail);
+
+                    try
+                    {
+                        client.Send(Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Quelque chose ne marche pas \n" + ex.InnerException.Message, "Erreur");
+                    }
+                }
+            }
+            MessageBox.Show("Bien envoyé");
+        }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -91,5 +139,7 @@ namespace HackatOrgan
         {
 
         }
+
+
     }
 }
