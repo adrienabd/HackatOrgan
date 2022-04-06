@@ -23,8 +23,8 @@ namespace HackatOrgan.Forms
         private void btn_ajout_evenement_Click(object sender, EventArgs e)
         {
             AjouteEvenement addE = new AjouteEvenement();
-
             addE.Show();
+           
         }
 
         private void btn_imprimer_Click(object sender, EventArgs e)

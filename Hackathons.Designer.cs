@@ -86,7 +86,7 @@ namespace HackatOrgan.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(239)))), ((int)(((byte)(231)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(603, 139);
+            this.ClientSize = new System.Drawing.Size(603, 141);
             this.Controls.Add(this.btn_tableau);
             this.Controls.Add(this.btn_ajout_evenement);
             this.Controls.Add(this.btn_imprimer);
