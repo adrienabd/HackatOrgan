@@ -63,7 +63,7 @@ namespace HackatOrgan.Forms
             // 
             // btn_precedent
             // 
-            this.btn_precedent.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btn_precedent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(190)))), ((int)(((byte)(201)))));
             this.btn_precedent.Location = new System.Drawing.Point(12, 12);
             this.btn_precedent.Name = "btn_precedent";
             this.btn_precedent.Size = new System.Drawing.Size(149, 34);
@@ -74,7 +74,7 @@ namespace HackatOrgan.Forms
             // 
             // btn_annuler
             // 
-            this.btn_annuler.BackColor = System.Drawing.Color.Yellow;
+            this.btn_annuler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(190)))), ((int)(((byte)(201)))));
             this.btn_annuler.Location = new System.Drawing.Point(19, 404);
             this.btn_annuler.Name = "btn_annuler";
             this.btn_annuler.Size = new System.Drawing.Size(147, 34);
@@ -85,7 +85,7 @@ namespace HackatOrgan.Forms
             // 
             // btn_valider
             // 
-            this.btn_valider.BackColor = System.Drawing.Color.Yellow;
+            this.btn_valider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(190)))), ((int)(((byte)(201)))));
             this.btn_valider.Location = new System.Drawing.Point(592, 404);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Size = new System.Drawing.Size(149, 34);
@@ -303,6 +303,7 @@ namespace HackatOrgan.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(239)))), ((int)(((byte)(231)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.num_cp);
             this.Controls.Add(this.num_places);
