@@ -43,9 +43,7 @@ namespace HackatOrgan.Forms
 
         private void btn_annuler_Click(object sender, EventArgs e)
         {
-            txtbx_theme.Clear();
-            txtbx_heure_debut.Clear();
-            txtbx_heure_fin.Clear();
+            this.Close();
         }
         private void btn_valider_Click(object sender, EventArgs e)
         {

@@ -23,8 +23,8 @@ namespace HackatOrgan.Forms
         private void btn_ajout_evenement_Click(object sender, EventArgs e)
         {
             AjouteEvenement addE = new AjouteEvenement();
-
             addE.Show();
+           
         }
 
         private void btn_imprimer_Click(object sender, EventArgs e)
@@ -42,9 +42,11 @@ namespace HackatOrgan.Forms
            
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btn_tableau_Click(object sender, EventArgs e)
         {
+            TableauDeBord tableau = new TableauDeBord();
 
+            tableau.Show();
         }
     }
 }
