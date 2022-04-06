@@ -94,7 +94,6 @@ namespace HackatOrgan.Forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Hackathons";
             this.Text = "Hackathons";
-            this.Load += new System.EventHandler(this.Hackathons_Load_1);
             this.ResumeLayout(false);
 
         }

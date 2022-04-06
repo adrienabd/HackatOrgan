@@ -148,7 +148,6 @@ namespace HackatOrgan.Forms
             this.lbl_lieu.Size = new System.Drawing.Size(35, 15);
             this.lbl_lieu.TabIndex = 21;
             this.lbl_lieu.Text = "Lieu :";
-            this.lbl_lieu.Click += new System.EventHandler(this.label3_Click);
             // 
             // lbl_cp
             // 
@@ -228,7 +227,6 @@ namespace HackatOrgan.Forms
             this.txtbx_image.Name = "txtbx_image";
             this.txtbx_image.Size = new System.Drawing.Size(613, 23);
             this.txtbx_image.TabIndex = 30;
-            this.txtbx_image.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lbl_image
             // 
@@ -238,7 +236,6 @@ namespace HackatOrgan.Forms
             this.lbl_image.Size = new System.Drawing.Size(71, 15);
             this.lbl_image.TabIndex = 31;
             this.lbl_image.Text = "Lien Image :";
-            this.lbl_image.Click += new System.EventHandler(this.label1_Click);
             // 
             // datepck_debut
             // 
@@ -246,7 +243,6 @@ namespace HackatOrgan.Forms
             this.datepck_debut.Name = "datepck_debut";
             this.datepck_debut.Size = new System.Drawing.Size(233, 23);
             this.datepck_debut.TabIndex = 32;
-            this.datepck_debut.ValueChanged += new System.EventHandler(this.datepck_debut_ValueChanged);
             // 
             // datepck_fin
             // 
@@ -269,7 +265,6 @@ namespace HackatOrgan.Forms
             this.datepck_heuredebut.Name = "datepck_heuredebut";
             this.datepck_heuredebut.Size = new System.Drawing.Size(116, 23);
             this.datepck_heuredebut.TabIndex = 85;
-            this.datepck_heuredebut.ValueChanged += new System.EventHandler(this.datepck_heuredebut_ValueChanged);
             // 
             // datepck_heurefin
             // 
@@ -285,7 +280,6 @@ namespace HackatOrgan.Forms
             this.num_places.Name = "num_places";
             this.num_places.Size = new System.Drawing.Size(120, 23);
             this.num_places.TabIndex = 86;
-            this.num_places.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // num_cp
             // 
@@ -335,7 +329,6 @@ namespace HackatOrgan.Forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AjouteHackathon";
             this.Text = "AjouteHackathon";
-            this.Load += new System.EventHandler(this.AjouteHackathon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.num_places)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_cp)).EndInit();
             this.ResumeLayout(false);

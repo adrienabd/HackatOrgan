@@ -98,7 +98,6 @@ namespace HackatOrgan
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // label_date
             // 
@@ -180,7 +179,6 @@ namespace HackatOrgan
             this.lbl_inscrit.Size = new System.Drawing.Size(87, 15);
             this.lbl_inscrit.TabIndex = 18;
             this.lbl_inscrit.Text = "----------------";
-            this.lbl_inscrit.Click += new System.EventHandler(this.lbl_inscrit_Click);
             // 
             // label4
             // 
@@ -200,7 +198,6 @@ namespace HackatOrgan
             this.lbl_note.Size = new System.Drawing.Size(140, 28);
             this.lbl_note.TabIndex = 19;
             this.lbl_note.Text = "----------------";
-            this.lbl_note.Click += new System.EventHandler(this.lbl_note_Click);
             // 
             // label5
             // 
@@ -219,7 +216,6 @@ namespace HackatOrgan
             this.lbl_lieu.Size = new System.Drawing.Size(87, 15);
             this.lbl_lieu.TabIndex = 22;
             this.lbl_lieu.Text = "----------------";
-            this.lbl_lieu.Click += new System.EventHandler(this.lbl_lieu_Click);
             // 
             // lbl_lieux
             // 
@@ -313,6 +309,8 @@ namespace HackatOrgan
         private System.Windows.Forms.Label lbl_lieu;
         private System.Windows.Forms.Label lbl_lieux;
         private System.Windows.Forms.Button btn_mail;
+
         private System.Windows.Forms.Button btn_precedent;
+
     }
 }

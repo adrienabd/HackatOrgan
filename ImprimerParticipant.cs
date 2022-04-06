@@ -82,9 +82,5 @@ namespace HackatOrgan
             this.Close();
         }
 
-        private void comboBox_hackathon_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

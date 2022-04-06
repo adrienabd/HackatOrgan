@@ -1,9 +1,6 @@
 ﻿using HackatOrgan.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -123,26 +120,5 @@ namespace HackatOrgan
         {
             this.Close();
         }
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_inscrit_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_note_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_lieu_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }

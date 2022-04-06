@@ -12,16 +12,6 @@ namespace HackatOrgan.Forms
         {
             InitializeComponent();
         }
-        private void lbl_date_debut_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_lieu_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void AjouteEvenement_Load(object sender, EventArgs e)
         {
             hackathonContext cnx = new hackathonContext();
@@ -30,10 +20,6 @@ namespace HackatOrgan.Forms
             combobox_hackathon.ValueMember = "idHackathon";
             lbl_nb_places.Enabled = false;
             num_places.Enabled = false;
-        }
-
-        private void combobox_hackathon_SelectedIndexChanged(object sender, EventArgs e)
-        {
         }
 
         private void btn_precedent_Click(object sender, EventArgs e)
@@ -100,17 +86,11 @@ namespace HackatOrgan.Forms
             cnx.SaveChanges();
             MessageBox.Show("Enregistrement Effectué");
         }
-
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             lbl_nb_places.Enabled = true;
             num_places.Enabled = true;
         }
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnradio_conference_CheckedChanged(object sender, EventArgs e)
         {
             lbl_nb_places.Enabled = false;

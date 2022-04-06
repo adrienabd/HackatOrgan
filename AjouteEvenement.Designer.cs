@@ -112,7 +112,6 @@ namespace HackatOrgan.Forms
             this.lbl_date.Size = new System.Drawing.Size(80, 15);
             this.lbl_date.TabIndex = 67;
             this.lbl_date.Text = "Se déroule le :";
-            this.lbl_date.Click += new System.EventHandler(this.lbl_date_debut_Click);
             // 
             // lbl_hackathon
             // 
@@ -122,7 +121,6 @@ namespace HackatOrgan.Forms
             this.lbl_hackathon.Size = new System.Drawing.Size(71, 15);
             this.lbl_hackathon.TabIndex = 65;
             this.lbl_hackathon.Text = "Hackathon :";
-            this.lbl_hackathon.Click += new System.EventHandler(this.lbl_lieu_Click);
             // 
             // lbl_theme
             // 
@@ -147,7 +145,6 @@ namespace HackatOrgan.Forms
             this.combobox_hackathon.Name = "combobox_hackathon";
             this.combobox_hackathon.Size = new System.Drawing.Size(411, 23);
             this.combobox_hackathon.TabIndex = 74;
-            this.combobox_hackathon.SelectedIndexChanged += new System.EventHandler(this.combobox_hackathon_SelectedIndexChanged);
             // 
             // lbl_type
             // 

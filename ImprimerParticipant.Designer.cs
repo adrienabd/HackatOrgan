@@ -43,7 +43,6 @@ namespace HackatOrgan
             this.comboBox_hackathon.Name = "comboBox_hackathon";
             this.comboBox_hackathon.Size = new System.Drawing.Size(149, 23);
             this.comboBox_hackathon.TabIndex = 0;
-            this.comboBox_hackathon.SelectedIndexChanged += new System.EventHandler(this.comboBox_hackathon_SelectedIndexChanged);
             // 
             // lbl_hackathon
             // 
