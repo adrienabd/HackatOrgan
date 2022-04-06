@@ -29,7 +29,10 @@ namespace HackatOrgan.Forms
 
         private void btn_annuler_Click(object sender, EventArgs e)
         {
-            this.Close();
+            txtbx_theme.Clear();
+            num_places.Value = 0;
+            btnradio_atelier.Checked = false;
+            btnradio_conference.Checked = false;
         }
         private void btn_valider_Click(object sender, EventArgs e)
         {

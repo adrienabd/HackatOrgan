@@ -230,7 +230,7 @@ namespace HackatOrgan
             // 
             this.btn_mail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(190)))), ((int)(((byte)(201)))));
             this.btn_mail.FlatAppearance.BorderSize = 0;
-            this.btn_mail.Location = new System.Drawing.Point(428, 9);
+            this.btn_mail.Location = new System.Drawing.Point(428, 12);
             this.btn_mail.Margin = new System.Windows.Forms.Padding(0);
             this.btn_mail.Name = "btn_mail";
             this.btn_mail.Size = new System.Drawing.Size(254, 34);
