@@ -119,6 +119,10 @@ namespace HackatOrgan
             }
             MessageBox.Show("Bien envoyé");
         }
+        private void btn_precedent_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
@@ -138,6 +142,5 @@ namespace HackatOrgan
         {
 
         }
-
     }
 }
