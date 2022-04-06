@@ -50,7 +50,7 @@ namespace HackatOrgan.Forms
             // btn_imprimer
             // 
             this.btn_imprimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(190)))), ((int)(((byte)(201)))));
-            this.btn_imprimer.Location = new System.Drawing.Point(348, 12);
+            this.btn_imprimer.Location = new System.Drawing.Point(269, 12);
             this.btn_imprimer.Name = "btn_imprimer";
             this.btn_imprimer.Size = new System.Drawing.Size(224, 37);
             this.btn_imprimer.TabIndex = 5;
@@ -61,7 +61,7 @@ namespace HackatOrgan.Forms
             // btn_ajout_evenement
             // 
             this.btn_ajout_evenement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(190)))), ((int)(((byte)(201)))));
-            this.btn_ajout_evenement.Location = new System.Drawing.Point(348, 88);
+            this.btn_ajout_evenement.Location = new System.Drawing.Point(269, 88);
             this.btn_ajout_evenement.Name = "btn_ajout_evenement";
             this.btn_ajout_evenement.Size = new System.Drawing.Size(224, 37);
             this.btn_ajout_evenement.TabIndex = 6;
@@ -86,7 +86,7 @@ namespace HackatOrgan.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(239)))), ((int)(((byte)(231)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(603, 141);
+            this.ClientSize = new System.Drawing.Size(511, 141);
             this.Controls.Add(this.btn_tableau);
             this.Controls.Add(this.btn_ajout_evenement);
             this.Controls.Add(this.btn_imprimer);
