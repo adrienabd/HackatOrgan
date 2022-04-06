@@ -50,10 +50,7 @@ namespace HackatOrgan
             this.lbl_lieu = new System.Windows.Forms.Label();
             this.lbl_lieux = new System.Windows.Forms.Label();
             this.btn_mail = new System.Windows.Forms.Button();
-<<<<<<< HEAD
-=======
             this.btn_precedent = new System.Windows.Forms.Button();
->>>>>>> 6162c72c2c87c3da9cf46e8acbaafc0d46d551ff
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -235,16 +232,6 @@ namespace HackatOrgan
             // 
             // btn_mail
             // 
-<<<<<<< HEAD
-            this.btn_mail.Location = new System.Drawing.Point(45, 317);
-            this.btn_mail.Name = "btn_mail";
-            this.btn_mail.Size = new System.Drawing.Size(329, 46);
-            this.btn_mail.TabIndex = 23;
-            this.btn_mail.Text = "Envoyer un mail de rappel aux participants";
-            this.btn_mail.UseVisualStyleBackColor = true;
-            this.btn_mail.Click += new System.EventHandler(this.btn_mail_Click);
-            // 
-=======
             this.btn_mail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(190)))), ((int)(((byte)(201)))));
             this.btn_mail.FlatAppearance.BorderSize = 0;
             this.btn_mail.Location = new System.Drawing.Point(428, 9);
@@ -267,18 +254,13 @@ namespace HackatOrgan
             this.btn_precedent.UseVisualStyleBackColor = false;
             this.btn_precedent.Click += new System.EventHandler(this.btn_precedent_Click);
             // 
->>>>>>> 6162c72c2c87c3da9cf46e8acbaafc0d46d551ff
             // TableauDeBord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(709, 388);
-=======
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(239)))), ((int)(((byte)(231)))));
             this.ClientSize = new System.Drawing.Size(709, 348);
             this.Controls.Add(this.btn_precedent);
->>>>>>> 6162c72c2c87c3da9cf46e8acbaafc0d46d551ff
             this.Controls.Add(this.btn_mail);
             this.Controls.Add(this.lbl_lieu);
             this.Controls.Add(this.lbl_lieux);
@@ -331,9 +313,6 @@ namespace HackatOrgan
         private System.Windows.Forms.Label lbl_lieu;
         private System.Windows.Forms.Label lbl_lieux;
         private System.Windows.Forms.Button btn_mail;
-<<<<<<< HEAD
-=======
         private System.Windows.Forms.Button btn_precedent;
->>>>>>> 6162c72c2c87c3da9cf46e8acbaafc0d46d551ff
     }
 }

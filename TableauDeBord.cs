@@ -96,31 +96,6 @@ namespace HackatOrgan
                 if (Pe.IdEvenement.Equals(Evenen))
                 {
                     MailAddress FromEmail = new MailAddress("noreply.hackatOrga@gmail.com");
-<<<<<<< HEAD
-                    MailAddress ToEmail = new MailAddress("noreply.hackatOrga@gmail.com");
-                    MailMessage Message = new MailMessage()
-                    {
-                        From = FromEmail,
-                        Subject = "Rappel Evenement : "+ Evene.Theme,
-                        Body = "Salut "+Pe.Nom + " " + Pe.Prenom +" !"+
-                        " N'oubliez pas que vous avez l'évenement " + Evene.Theme + " le " +Evene.Date + " De " + Evene.HeureDebut + " à " + Evene.HeureFin +
-                        " Cordialement, l'équipe d'Hackat'Orga! ",
-                    };
-                    Message.To.Add(ToEmail);
-
-                    try
-                    {
-                        client.Send(Message);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Quelque chose ne marche pas \n" + ex.InnerException.Message, "Erreur");
-                    }
-                }
-            }
-            MessageBox.Show("Bien envoyé");
-        }
-=======
                     MailAddress ToEmail = new MailAddress(Pe.Mail);
                     MailMessage Message = new MailMessage()
                     {
@@ -131,7 +106,6 @@ namespace HackatOrgan
                         " Cordialement, l'équipe d'Hackat'Orga! ",
                     };
                     Message.To.Add(ToEmail);
->>>>>>> 6162c72c2c87c3da9cf46e8acbaafc0d46d551ff
 
                     try
                     {
