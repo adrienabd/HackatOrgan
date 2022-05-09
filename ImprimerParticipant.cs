@@ -22,7 +22,7 @@ namespace HackatOrgan
             //Création d'un document
             string name = Convert.ToString(comboBox_hackathon.SelectedValue);
             Document unDocument = new Document();
-            PdfWriter.GetInstance(unDocument, new FileStream("D:\\aabderrahmann\\Applis Hackathons\\Documents\\Participants." + name +".pdf", FileMode.Create));
+            PdfWriter.GetInstance(unDocument, new FileStream("C:\\Users\\" + System.Environment.UserName+ "\\Desktop\\Participants." + name +".pdf", FileMode.Create));
             unDocument.Open();
 
             //Paragraphe centré avec une police de 14 et du gras

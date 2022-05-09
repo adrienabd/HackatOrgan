@@ -58,7 +58,7 @@ namespace HackatOrgan.Forms
             {
                 if (btnradio_atelier.Checked == false)
                 {
-                    MessageBox.Show("Veuillez choisir un type d'évenement"); ;
+                    MessageBox.Show("Veuillez choisir un type d'évenement");
                 }
             }
             //Récupère l'Id de l'Hackathon selectionné
@@ -98,6 +98,11 @@ namespace HackatOrgan.Forms
         {
             lbl_nb_places.Enabled = false;
             num_places.Enabled = false;
+        }
+
+        private void combobox_hackathon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

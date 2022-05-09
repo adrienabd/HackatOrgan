@@ -255,7 +255,7 @@ namespace HackatOrgan
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(239)))), ((int)(((byte)(231)))));
-            this.ClientSize = new System.Drawing.Size(709, 348);
+            this.ClientSize = new System.Drawing.Size(709, 341);
             this.Controls.Add(this.btn_precedent);
             this.Controls.Add(this.btn_mail);
             this.Controls.Add(this.lbl_lieu);
