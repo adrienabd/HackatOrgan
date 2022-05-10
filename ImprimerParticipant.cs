@@ -41,29 +41,34 @@ namespace HackatOrgan
             //Remplissage avec la liste des participants
             foreach (Hackathon H in cnx.Hackathons.ToList())
             {
+                //récupération de l'id de l'hackathon selectionné
                 object Hackat = comboBox_hackathon.SelectedValue;
                 if (H.Theme.Equals(Hackat))
                 {
+                    //boucle sur participation
                     foreach (Participation Ption in cnx.Participations.ToList())
                     {
+                        //récupération des participation de l'hackathon selectionné
                         if (H.IdHackathon == Ption.IdHackathon)
                         {
+                            //boucle sur les participants
                             foreach (Participant P in cnx.Participants.ToList())
                             {
+                                //récupération du participant de la participation selectionnée
                                 if (P.IdParticipant == Ption.IdParticipant)
                                 {
                                     tableau.AddCell(P.Nom);
                                     tableau.AddCell(P.Prenom);
                                     tableau.AddCell((Ption.DateInscription).ToString("dd/MM/yyyy"));
-                                    
                                 }
                             }
                         }
                     }
                 }
             }
-
+            //ajout du tableau dans le document
             unDocument.Add(tableau);
+
             //Enregistrement du fichier
             unDocument.Close();
             MessageBox.Show("Document généré");
@@ -71,6 +76,7 @@ namespace HackatOrgan
 
         private void ImprimerParticipant_Load(object sender, EventArgs e)
         {
+            //incrémente la combobox avec les Hackathons de la base de données
             hackathonContext cnx = new hackathonContext();
             comboBox_hackathon.DataSource = cnx.Hackathons.OrderBy(Ha => Ha.IdHackathon).ToList();
             comboBox_hackathon.DisplayMember = "Theme";
@@ -79,6 +85,7 @@ namespace HackatOrgan
 
         private void btn_precedent_Click(object sender, EventArgs e)
         {
+            //ferme la fenêtre
             this.Close();
         }
 

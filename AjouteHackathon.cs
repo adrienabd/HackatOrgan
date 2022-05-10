@@ -12,10 +12,12 @@ namespace HackatOrgan.Forms
         }
         private void btn_precedent_Click(object sender, EventArgs e)
         {
+            //ferme la fenêtre
             this.Close();
         }
         private void btn_annuler_Click(object sender, EventArgs e)
         {
+            // réinitialise les champs 
             txtbx_theme.Clear();
             txtbx_lieu.Clear();
             txtbx_rue.Clear();
@@ -24,6 +26,8 @@ namespace HackatOrgan.Forms
         private void btn_valider_Click(object sender, EventArgs e)
         {
             hackathonContext cnx = new hackathonContext();
+
+            //Ajout les éléments à un nouvel objet Hackathon
             Hackathon newHackathon = new Hackathon()
             {
                 Theme = txtbx_theme.Text,
