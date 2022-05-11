@@ -10,6 +10,7 @@ namespace HackatOrgan
 {
     public partial class TableauDeBord : Form
     {
+        string lieu;
         public TableauDeBord()
         {
             InitializeComponent();
@@ -88,6 +89,7 @@ namespace HackatOrgan
         {
             hackathonContext cnx = new hackathonContext();
 
+           
             SmtpClient client = new SmtpClient()
             //création du client d'envoie
             {
@@ -105,8 +107,16 @@ namespace HackatOrgan
             //boucle pour récupérer les participants dans l'évenement 
             foreach (Participantevenement Pe in cnx.Participantevenements.ToList())
             {
+                
                 Evenement Evene = (Evenement)cbx_Evenement.SelectedItem;
-                object Evenen = cbx_Evenement.SelectedValue;
+                foreach (Hackathon Hack in cnx.Hackathons.ToList())
+                {
+                    if(Evene.IdHackathon == Hack.IdHackathon)
+                    {
+                        lieu = Hack.Lieu;
+                    }
+                }
+                    object Evenen = cbx_Evenement.SelectedValue;
                 if (Pe.IdEvenement.Equals(Evenen))
                 {
                     MailAddress FromEmail = new MailAddress("noreply.hackatOrga@gmail.com");
@@ -117,7 +127,7 @@ namespace HackatOrgan
                         From = FromEmail,
                         Subject = "Rappel Evenement : " + Evene.Theme,
                         Body = "Bonjour " + Pe.Nom + " " + Pe.Prenom + " ! \r\n" +
-                        " N'oubliez pas que vous avez l'évenement " + Evene.Theme + " le " + Evene.Date + " De " + Evene.HeureDebut + " à " + Evene.HeureFin + "\r\n" +
+                        " N'oubliez pas que vous avez l'évenement " + Evene.Theme + " à " + lieu + " le " + Evene.Date + " De " + Evene.HeureDebut + " à " + Evene.HeureFin + "\r\n" +
                         " Cordialement, l'équipe d'Hackat'Orga! ",
                     };
                     Message.To.Add(ToEmail);
