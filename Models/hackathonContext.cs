@@ -1,8 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-
-#nullable disable
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace HackatOrgan.Models
 {
@@ -12,21 +8,11 @@ namespace HackatOrgan.Models
         {
         }
 
-        public hackathonContext(DbContextOptions<hackathonContext> options)
-            : base(options)
-        {
-        }
-
-        public virtual DbSet<Commentaire> Commentaires { get; set; }
         public virtual DbSet<Evenement> Evenements { get; set; }
-        public virtual DbSet<Favori> Favoris { get; set; }
         public virtual DbSet<Hackathon> Hackathons { get; set; }
-        public virtual DbSet<Intervenant> Intervenants { get; set; }
-        public virtual DbSet<Intervenantevenement> Intervenantevenements { get; set; }
         public virtual DbSet<Participant> Participants { get; set; }
         public virtual DbSet<Participantevenement> Participantevenements { get; set; }
         public virtual DbSet<Participation> Participations { get; set; }
-        public virtual DbSet<Typeevenement> Typeevenements { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
