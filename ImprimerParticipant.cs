@@ -27,7 +27,7 @@ namespace HackatOrgan
 
             //Paragraphe centré avec une police de 14 et du gras
             iTextSharp.text.Font myFont = FontFactory.GetFont("Arial", 14, iTextSharp.text.Font.BOLD);
-            Paragraph titre = new Paragraph("Liste des Participants pour l'évenement :"+ name, myFont);
+            Paragraph titre = new Paragraph("Liste des Participants pour l'hackathon : "+ name, myFont);
             titre.Alignment = Element.ALIGN_CENTER;
             titre.SpacingAfter = 12;
             unDocument.Add(titre);
